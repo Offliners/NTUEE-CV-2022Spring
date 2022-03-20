@@ -15,7 +15,7 @@ def main():
     parser.add_argument('--gt_path', default = './testdata/1_gt.npy', help = 'path to ground truth .npy')
     args = parser.parse_args()
 
-    img = cv2.imread(args.image_path, 0).astype(np.float32)
+    img = cv2.imread(args.image_path, 0).astype(np.float64)
 
     # create DoG class
     DoG = Difference_of_Gaussian(args.threshold)
