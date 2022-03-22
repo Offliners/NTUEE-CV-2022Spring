@@ -19,8 +19,9 @@ class Difference_of_Gaussian(object):
         down_sample = 0.5
         for _ in range(self.num_octaves):
             gaussian_images_in_octave = []
-            for i in range(self.num_guassian_images_per_octave):
-                gaussian_images_in_octave.append(cv2.GaussianBlur(img_, (0, 0), self.sigma**(i+1), self.sigma**(i+1)))
+            gaussian_images_in_octave.append(img_)
+            for i in range(1, self.num_guassian_images_per_octave):
+                gaussian_images_in_octave.append(cv2.GaussianBlur(img_, (0, 0), self.sigma**i, self.sigma**i))
             
             img_ = cv2.resize(img_, (int(img_.shape[1] * down_sample), int(img_.shape[0] * down_sample)), interpolation=cv2.INTER_NEAREST)
             gaussian_images.append(gaussian_images_in_octave)
