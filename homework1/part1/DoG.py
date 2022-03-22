@@ -1,6 +1,6 @@
+from matplotlib.cbook import flatten
 import numpy as np
 import cv2
-
 
 class Difference_of_Gaussian(object):
     def __init__(self, threshold):
@@ -23,26 +23,48 @@ class Difference_of_Gaussian(object):
             for i in range(1, self.num_guassian_images_per_octave):
                 gaussian_images_in_octave.append(cv2.GaussianBlur(img_, (0, 0), self.sigma**i, self.sigma**i))
             
-            img_ = cv2.resize(img_, (int(img_.shape[1] * down_sample), int(img_.shape[0] * down_sample)), interpolation=cv2.INTER_NEAREST)
+            img_ = cv2.resize(gaussian_images_in_octave[-1], (int(img_.shape[1] * down_sample), int(img_.shape[0] * down_sample)), interpolation=cv2.INTER_NEAREST)
             gaussian_images.append(gaussian_images_in_octave)
 
         # Step 2: Subtract 2 neighbor images to get DoG images (4 images per octave, 2 octave in total)
         # - Function: cv2.subtract(second_image, first_image)
         dog_images = []
-        for gaussian_images_in_octave in gaussian_images:
+        for i in range(self.num_octaves):
             dog_images_in_octave = []
-            for prev, next in zip(gaussian_images_in_octave, gaussian_images_in_octave[1:]):
-                dog_images_in_octave.append(cv2.subtract(next, prev))
+            for j in range(1, self.num_guassian_images_per_octave):
+                dog_images_in_octave.append(cv2.subtract(gaussian_images[i][j], gaussian_images[i][j - 1]))
         
             dog_images.append(dog_images_in_octave)
 
         # Step 3: Thresholding the value and Find local extremum (local maximun and local minimum)
         #         Keep local extremum as a keypoint
         keypoints = []
+        for i in range(self.num_octaves):
+            for j in range(1, self.num_DoG_images_per_octave - 1):
+                prev_img = dog_images[i][j - 1]
+                middle_img = dog_images[i][j]
+                next_img = dog_images[i][j + 1]
 
+                for x in range(1, middle_img.shape[0] - 2):
+                    for y in range(1, middle_img.shape[1] - 2):
+                        if np.abs(middle_img[x][y]) < self.threshold:
+                            continue
+
+                        prev_values = prev_img[x - 1: x + 2, y - 1: y + 2].flatten()
+                        middle_values = middle_img[x - 1: x + 2, y - 1: y + 2].flatten()
+                        next_values = next_img[x - 1: x + 2, y - 1: y + 2].flatten()
+                        compare_values = np.concatenate((prev_values, middle_values), axis=0)
+                        compare_values = np.concatenate((compare_values, next_values), axis=0)
+                        if middle_img[x][y] == np.min(compare_values) or middle_img[x][y] == np.max(compare_values):
+                            if i == 0:
+                                keypoints.append([x, y])
+                            else:
+                                keypoints.append([int(x / down_sample), int(y / down_sample)])
+                
         # Step 4: Delete duplicate keypoints
         # - Function: np.unique
-
+        keypoints = np.array(keypoints)
+        np.unique(keypoints)
 
         # sort 2d-point by y, then by x
         keypoints = keypoints[np.lexsort((keypoints[:,1],keypoints[:,0]))] 
