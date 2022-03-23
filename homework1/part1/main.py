@@ -20,6 +20,10 @@ def main():
     img = cv2.imread(args.image_path, 0).astype(np.float32)
 
     ### TODO ###
+    img_ = img.copy()
+    DoG = Difference_of_Gaussian(args.threshold)
+    save_paht = f'keypoints_output/keypoints_threshold_{int(args.threshold)}.png'
+    plot_keypoints(img_, DoG.get_keypoints(img_), save_paht)
 
 
 if __name__ == '__main__':
