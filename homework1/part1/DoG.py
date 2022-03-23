@@ -1,4 +1,3 @@
-from matplotlib.cbook import flatten
 import numpy as np
 import cv2
 
@@ -32,7 +31,10 @@ class Difference_of_Gaussian(object):
         for i in range(self.num_octaves):
             dog_images_in_octave = []
             for j in range(1, self.num_guassian_images_per_octave):
-                dog_images_in_octave.append(cv2.subtract(gaussian_images[i][j], gaussian_images[i][j - 1]))
+                tmp = cv2.subtract(gaussian_images[i][j], gaussian_images[i][j - 1])
+                # tmp1 = cv2.normalize(tmp, None, 0, 255, cv2.NORM_MINMAX)
+                # cv2.imwrite(f'DoG_output/DoG{i+1}_{j}.png', tmp1)
+                dog_images_in_octave.append(tmp)
         
             dog_images.append(dog_images_in_octave)
 
