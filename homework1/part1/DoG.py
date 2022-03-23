@@ -47,16 +47,17 @@ class Difference_of_Gaussian(object):
                 middle_img = dog_images[i][j]
                 next_img = dog_images[i][j + 1]
 
-                for x in range(1, middle_img.shape[0] - 2):
-                    for y in range(1, middle_img.shape[1] - 2):
-                        if np.abs(middle_img[x][y]) < self.threshold:
+                for x in range(1, middle_img.shape[0] - 1):
+                    for y in range(1, middle_img.shape[1] - 1):
+                        if np.abs(middle_img[x][y]) <= self.threshold:
                             continue
 
                         prev_values = prev_img[x - 1: x + 2, y - 1: y + 2].flatten()
                         middle_values = middle_img[x - 1: x + 2, y - 1: y + 2].flatten()
                         next_values = next_img[x - 1: x + 2, y - 1: y + 2].flatten()
                         compare_values = np.concatenate((np.concatenate((prev_values, middle_values), axis=0), next_values), axis=0)
-                        if middle_img[x][y] == np.min(compare_values) or middle_img[x][y] == np.max(compare_values):
+                        compare_values = np.delete(compare_values, 13)
+                        if middle_img[x][y] <= np.min(compare_values) or middle_img[x][y] >= np.max(compare_values):
                             if i == 0:
                                 keypoints.append([x, y])
                             else:
@@ -64,9 +65,8 @@ class Difference_of_Gaussian(object):
                 
         # Step 4: Delete duplicate keypoints
         # - Function: np.unique
-        keypoints = np.array(keypoints)
-        np.unique(keypoints)
+        keypoints = np.unique(np.array(keypoints), axis=0)
 
         # sort 2d-point by y, then by x
-        keypoints = keypoints[np.lexsort((keypoints[:,1],keypoints[:,0]))] 
+        keypoints = keypoints[np.lexsort((keypoints[:,1],keypoints[:,0]))]
         return np.array(keypoints)
