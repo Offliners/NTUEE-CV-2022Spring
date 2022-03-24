@@ -15,25 +15,25 @@ class Joint_bilateral_filter(object):
         padded_guidance = cv2.copyMakeBorder(guidance, self.pad_w, self.pad_w, self.pad_w, self.pad_w, BORDER_TYPE).astype(np.int32)
 
         ### TODO ###
-        output = np.zeros_like(img)
         r = int((self.wndw_size - 1) / 2)
-        LUTr = np.exp(- np.linspace(0, 1, 256) ** 2 / (2 * self.sigma_r * self.sigma_r))
-        x, y = np.meshgrid(np.arange(-r, r+1), np.arange(-r, r+1))
-        LUTs = np.exp(- (x * x + y * y) / (2 * self.sigma_s * self.sigma_s))
-
-        for row in range(self.pad_w, padded_guidance.shape[0] - self.pad_w):
-            for col in range(self.pad_w, padded_guidance.shape[0] - self.pad_w):
-                if padded_guidance.ndim == 3:
-                    Wsr = LUTr[abs(padded_guidance[(row - r):(row + r + 1), (col - r):(col + r + 1), 0] - padded_guidance[row, col, 0])] * \
-                          LUTr[abs(padded_guidance[(row - r):(row + r + 1), (col - r):(col + r + 1), 1] - padded_guidance[row, col, 1])] * \
-                          LUTr[abs(padded_guidance[(row - r):(row + r + 1), (col - r):(col + r + 1), 2] - padded_guidance[row, col, 2])] * \
-                          LUTs
+        LUT = np.exp(- np.linspace(0, 1, 256) ** 2 / (2 * self.sigma_r * self.sigma_r))
+        x, y = np.meshgrid(np.arange(-r, r + 1), np.arange(-r, r + 1))
+        s_kernel = np.exp(- (x * x + y * y) / (2 * self.sigma_s * self.sigma_s))
+        
+        output = np.zeros_like(img)
+        for y in range(r, r + img.shape[0]):
+            for x in range(r, r + img.shape[1]):
+                if guidance.ndim == 3:
+                    wgt = LUT[abs(padded_guidance[y - r:y + r + 1, x - r:x + r + 1, 0] - padded_guidance[y, x, 0])] * \
+                        LUT[abs(padded_guidance[y - r:y + r + 1, x - r:x + r + 1, 1] - padded_guidance[y, x, 1])] * \
+                        LUT[abs(padded_guidance[y - r:y + r + 1, x - r:x + r + 1, 2] - padded_guidance[y, x, 2])] * \
+                        s_kernel
                 else:
-                    Wsr = LUTr[abs(padded_guidance[(row - r):(row + r + 1), (col - r):(col + r + 1)] - padded_guidance[row, col])] * LUTs
-
-                sum_Wsr = np.sum(Wsr)
-                output[row-self.pad_w, col-self.pad_w, 0] = np.sum(Wsr * padded_img[(row - r): (row + r + 1), (col - r):(col + r + 1), 0]) / sum_Wsr
-                output[row-self.pad_w, col-self.pad_w, 1] = np.sum(Wsr * padded_img[(row - r): (row + r + 1), (col - r):(col + r + 1), 1]) / sum_Wsr
-                output[row-self.pad_w, col-self.pad_w, 2] = np.sum(Wsr * padded_img[(row - r): (row + r + 1), (col - r):(col + r + 1), 2]) / sum_Wsr
+                    wgt = LUT[abs(padded_guidance[y - r:y + r + 1, x - r:x + r + 1] - padded_guidance[y, x])] * s_kernel
+                
+                wacc = np.sum(wgt)
+                output[y - r, x - r, 0] = np.sum(wgt * padded_img[y - r:y + r + 1, x - r:x + r + 1, 0]) / wacc
+                output[y - r, x - r, 1] = np.sum(wgt * padded_img[y - r:y + r + 1, x - r:x + r + 1, 1]) / wacc
+                output[y - r, x - r, 2] = np.sum(wgt * padded_img[y - r:y + r + 1, x - r:x + r + 1, 2]) / wacc
         
         return np.clip(output, 0, 255).astype(np.uint8)
