@@ -56,6 +56,7 @@ class Difference_of_Gaussian(object):
                         middle_values = middle_img[x - 1: x + 2, y - 1: y + 2].flatten()
                         next_values = next_img[x - 1: x + 2, y - 1: y + 2].flatten()
                         compare_values = np.concatenate((np.concatenate((prev_values, middle_values), axis=0), next_values), axis=0)
+                        compare_values = np.delete(compare_values, 13)
                         if middle_img[x][y] <= np.min(compare_values) or middle_img[x][y] >= np.max(compare_values):
                             if i == 0:
                                 keypoints.append([x, y])
