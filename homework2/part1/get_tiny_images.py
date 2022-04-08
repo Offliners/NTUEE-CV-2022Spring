@@ -18,6 +18,21 @@ def get_tiny_images(image_paths):
         tiny image features : (N, d) matrix of resized and then vectorized tiny
         images. E.g. if the images are resized to 16x16, d would equal 256.
     '''
+
+    tiny_images = []
+    tiny_img_width, tiny_img_height = 16, 16
+
+    for img_path in image_paths:
+        img = Image.open(img_path)
+        img_width, img_height = img.size
+
+        left = (img_width - tiny_img_width) / 2
+        top = (img_height - tiny_img_height) / 2
+        right = (img_width + tiny_img_width) / 2
+        bottom = (img_height + tiny_img_height) / 2
+
+        img = img.crop((left, top, right, bottom))
+        tiny_images.append(img)
     
     ##############################################################################
     #                                END OF YOUR CODE                            #
