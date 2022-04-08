@@ -1,0 +1,3 @@
+[submodule "homework2/cyvlfeat"]
+	path = homework2/cyvlfeat
+	url = https://github.com/menpo/cyvlfeat.git

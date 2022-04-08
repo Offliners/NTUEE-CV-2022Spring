@@ -1,9 +1,9 @@
 opencv-python==4.5.1.48
-numpy==1.19.2
-pillow==8.1.2
-matplotlib==3.3.4
-scipy==1.5.2
-scikit-learn==0.24.1
+numpy
+matplotlib
+scipy
+pillow
+scikit-learn
 torch
 torchvision
 torchaudio

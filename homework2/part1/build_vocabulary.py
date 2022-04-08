@@ -57,6 +57,18 @@ def build_vocabulary(image_paths, vocab_size):
         Clusters centers of Kmeans
     '''
 
+    bag_of_features = []
+
+    for img_path in image_paths:
+        img = Image.open(img_path).convert('L')
+        keypoints, descriptors = dsift(img, step=[1, 1], fast=True)
+
+        if descriptors:
+          for des in descriptors:
+              bag_of_features.append(des)
+
+    vocab = kmeans(bag_of_features, vocab_size)
+
     ##################################################################################
     #                                END OF YOUR CODE                                #
     ##################################################################################
