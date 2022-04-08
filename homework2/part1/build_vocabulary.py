@@ -61,9 +61,10 @@ def build_vocabulary(image_paths, vocab_size):
 
     for img_path in image_paths:
         img = Image.open(img_path).convert('L')
+        img = np.array(img)
         keypoints, descriptors = dsift(img, step=[1, 1], fast=True)
 
-        if descriptors:
+        if descriptors is not None:
           for des in descriptors:
               bag_of_features.append(des)
 
