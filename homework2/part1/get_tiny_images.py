@@ -20,19 +20,16 @@ def get_tiny_images(image_paths):
     '''
 
     tiny_images = []
-    tiny_img_width, tiny_img_height = 16, 16
-
     for img_path in image_paths:
-        img = Image.open(img_path)
-        img_width, img_height = img.size
+        img = Image.open(img_path).convert('L')
 
-        left = (img_width - tiny_img_width) / 2
-        top = (img_height - tiny_img_height) / 2
-        right = (img_width + tiny_img_width) / 2
-        bottom = (img_height + tiny_img_height) / 2
+        img = img.resize((16, 16))
+        img_1d = np.array(img).flatten()
+        tiny_images.append(img_1d)
 
-        img = img.crop((left, top, right, bottom))
-        tiny_images.append(img)
+        img.close()
+    
+    tiny_images = np.array(tiny_images)
     
     ##############################################################################
     #                                END OF YOUR CODE                            #

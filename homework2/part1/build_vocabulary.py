@@ -58,20 +58,21 @@ def build_vocabulary(image_paths, vocab_size):
     '''
 
     bag_of_features = []
+    step_size = 5
 
     for img_path in image_paths:
         img = Image.open(img_path).convert('L')
-        img = np.array(img)
-        keypoints, descriptors = dsift(img, step=[1, 1], fast=True)
+        keypoints, descriptors = dsift(np.array(img), step=[step_size, step_size], fast=True)
 
         if descriptors is not None:
-          for des in descriptors:
-              bag_of_features.append(des)
+            for des in descriptors:
+                bag_of_features.append(des)
 
-    vocab = kmeans(bag_of_features, vocab_size)
+        img.close()
+
+    vocab = kmeans(np.array(bag_of_features).astype('float32'), vocab_size)
 
     ##################################################################################
     #                                END OF YOUR CODE                                #
     ##################################################################################
     return vocab
-

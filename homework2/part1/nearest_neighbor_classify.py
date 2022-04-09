@@ -37,6 +37,14 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats)
             category for each testing image.
     '''
 
+    k = 5
+    label = np.array(train_labels)
+    test_predicts = []
+    dist = distance.cdist(test_image_feats, train_image_feats, 'cityblock')
+    for item in dist:
+        neighbor = np.argpartition(item, k)[:k]
+        test_predicts.append(mode(label[neighbor])[0][0])
+
     #############################################################################
     #                                END OF YOUR CODE                           #
     #############################################################################

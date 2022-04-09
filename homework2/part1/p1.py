@@ -3,6 +3,7 @@ from random import shuffle
 import os
 import argparse
 import pickle
+import time # new add
 
 from get_tiny_images import get_tiny_images
 from build_vocabulary import build_vocabulary
@@ -186,5 +187,7 @@ def get_image_paths(data_path, categories, num_train_per_cat):
 
 
 if __name__ == '__main__':
+    st = time.time()
     main()
-
+    et = time.time()
+    print(f'Usage time : {et - st}')
