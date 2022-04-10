@@ -9,16 +9,22 @@ import time
 from tqdm import tqdm
 import os
 import random
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+
+from myDatasets import cifar10_dataset
 
 
 def fixed_seed(myseed):
     np.random.seed(myseed)
     random.seed(myseed)
     torch.manual_seed(myseed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(myseed)
-
+        torch.cuda.manual_seed(myseed)
+        
+        
 def save_model(model, path):
     print(f'Saving model to {path}...')
     torch.save(model.state_dict(), path)
@@ -34,7 +40,7 @@ def load_parameters(model, path):
 
 
 ## TO DO ##
-def plot_learning_curve(x, y):
+def plot_learning_curve(x, y, mode, curve_type, save_path):
     """_summary_
     The function is mainly to show and save the learning curves. 
     input: 
@@ -45,11 +51,19 @@ def plot_learning_curve(x, y):
     #############
     ### TO DO ### 
     # You can consider the package "matplotlib.pyplot" in this part.
-    
-    pass
-    
 
-def train(model, train_loader, val_loader, num_epoch, log_path, save_path, device, criterion, scheduler, optimizer):
+    plt.plot(x, y, label=f'{mode} {curve_type}')
+    plt.xlabel('Epoch')
+    plt.ylabel(f'{curve_type}')
+    plt.title(f'Learning curve of {mode} {curve_type}')
+    plt.legend()
+
+    os.makedirs(os.path.join(save_path, f'{mode}'), exist_ok=True)
+    plt.savefig(os.path.join(save_path, f'{mode}/{curve_type}.png'))
+    plt.close()
+
+
+def train(model, model_name, train_loader, val_loader, train_set, num_epoch, log_path, save_path, device, criterion, scheduler, optimizer):
     start_train = time.time()
 
     overall_loss = np.zeros(num_epoch ,dtype=np.float32)
@@ -123,6 +137,24 @@ def train(model, train_loader, val_loader, num_epoch, log_path, save_path, devic
             # Finish forward part in validation. You can refer to the training part 
             # Note : You don't have to update parameters this part. Just Calculate/record the accuracy and loss. 
 
+            valid_loss = []
+            valid_acc = []
+
+            for batch in tqdm(val_loader):
+                imgs, labels = batch
+
+                logits = model(imgs.to(device))
+                loss = criterion(logits, labels.to(device))
+
+                acc = (logits.argmax(dim=-1) == labels.to(device)).float().mean()
+
+                valid_loss.append(loss.item())
+                valid_acc.append(acc)
+            
+            val_loss = sum(valid_loss) / len(valid_loss)
+            val_acc = sum(valid_acc) / len(valid_acc)
+
+            overall_val_loss[i], overall_val_acc[i] = val_loss, val_acc
 
         
         # Display the results
@@ -162,6 +194,7 @@ def train(model, train_loader, val_loader, num_epoch, log_path, save_path, devic
     ## TO DO ##
     # Consider the function plot_learning_curve(x, y) above
     
-    pass
-
-
+    plot_learning_curve(x, overall_acc, 'train', 'acc', f'save_dir/{model_name}')
+    plot_learning_curve(x, overall_loss, 'train', 'loss', f'save_dir/{model_name}')
+    plot_learning_curve(x, overall_val_acc, 'valid', 'acc', f'save_dir/{model_name}')
+    plot_learning_curve(x, overall_val_loss, 'valid', 'loss', f'save_dir/{model_name}')

@@ -24,7 +24,7 @@ def get_tiny_images(image_paths):
         img = Image.open(img_path).convert('L')
 
         img = img.resize((16, 16))
-        img_1d = np.array(img).flatten()
+        img_1d = ((img - np.mean(img)) / np.std(img)).flatten()
         tiny_images.append(img_1d)
 
         img.close()

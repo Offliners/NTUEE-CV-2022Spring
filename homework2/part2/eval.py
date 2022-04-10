@@ -9,8 +9,10 @@ import argparse
 from tqdm import tqdm
 
 from tool import load_parameters
-from myModels import myResnet, myLeNet
+from myModels import myResnet, myLeNet, residual_block
 from myDatasets import cifar10_dataset
+
+from torchvision import models
 
 
 # The function help you to calculate accuracy easily
@@ -33,6 +35,7 @@ def test_result(test_loader, model, device):
 def main():
 
     parser = argparse.ArgumentParser()
+    parser.add_argument('--model', help='Model Name', type=str, default='LeNet')
     parser.add_argument('--path', help='model_path', type=str, default='')
     parser.add_argument('--test_anno', help='annotaion for test image', type=str, default= './p2_data/annotations/public_test_annos.json')
     args = parser.parse_args()
@@ -42,12 +45,18 @@ def main():
     
     # change your model here 
 
-    ## TO DO ## 
-    # Indicate the model you use here
-    model = myLeNet(num_out=10)    
-    
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     #device = torch.device('cpu')
+
+    ## TO DO ## 
+    # Indicate the model you use here
+    if args.model == 'LeNet':
+        model = myLeNet(num_out=10)
+    elif args.model == 'myResnet':
+        model = myResnet(residual_block, [3, 3, 3, 2, 2, 2]).to(device)
+    elif args.model == 'preTrained':
+        model = models.densenet121(pretrained=True)
+
     
     # Simply load parameters
     load_parameters(model=model, path=path)

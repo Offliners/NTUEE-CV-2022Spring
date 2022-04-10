@@ -45,7 +45,9 @@ def get_cifar10_train_val_set(root, ratio=0.9, cv=0):
     train_transform = transforms.Compose([
                 ## TO DO ##
                 # You can add some transforms here
-                
+                transforms.RandomRotation(30),
+                transforms.RandomCrop(32),
+                transforms.RandomHorizontalFlip(),
                 # ToTensor is needed to convert the type, PIL IMG,  to the typ, float tensor.  
                 transforms.ToTensor(),
                 
@@ -58,17 +60,14 @@ def get_cifar10_train_val_set(root, ratio=0.9, cv=0):
                 transforms.ToTensor(),
                 transforms.Normalize(means, stds),
             ])
-
- 
   
     ## TO DO ##
     # Complete class cifiar10_dataset
     train_set, val_set = cifar10_dataset(images=train_image, labels=train_label,transform=train_transform), \
-                        cifar10_dataset(images=val_image, labels=val_label,transform=val_transform)
+                         cifar10_dataset(images=val_image, labels=val_label,transform=val_transform)
 
 
     return train_set, val_set
-
 
 
 ## TO DO ##
@@ -78,7 +77,9 @@ class cifar10_dataset(Dataset):
         
         # It loads all the images' file name and correspoding labels here
         self.images = images 
-        self.labels = labels 
+        # self.labels = labels
+        if labels is not None:
+            self.labels = torch.LongTensor(labels) 
         
         # The transform for the image
         self.transform = transform
@@ -97,5 +98,14 @@ class cifar10_dataset(Dataset):
         # Use "PIL.Image.open" to read image and apply transform
         
         # You shall return image, label with type "long tensor" if it's training set
-        pass
+
+        img_name = self.images[idx]
+        img_path = os.path.join(self.prefix, img_name)
+        image = Image.open(img_path).convert('RGB')
+
+        if self.transform:
+            image = self.transform(image)
+
+        return image, self.labels[idx]
+
         

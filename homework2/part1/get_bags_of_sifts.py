@@ -38,17 +38,17 @@ def get_bags_of_sifts(image_paths):
         vocab = pickle.load(f)
     
     k = 5
-    step_size = 5
+    step_size = 3
     image_feats = []
 
     for img_path in image_paths:
-        img = Image.open(img_path).convert('L')
-        keypoints, descriptors = dsift(np.array(img), step=[step_size, step_size], fast=True)
-        descriptors = descriptors[::k]
- 
-        min_neighbor = np.argmin(distance.cdist(vocab, descriptors), axis=0)
+        img = Image.open(img_path)# .convert('L')
+        keypoints, descriptors = dsift(np.array(img).astype(np.float32), step=[step_size, step_size], fast=True)
+
+        dist = distance.cdist(vocab, descriptors, 'euclidean')
+        min_neighbor = np.argmin(dist, axis=0)
         hist, bins = np.histogram(min_neighbor, bins=len(vocab)) 
-        image_feats.append([float(item) / sum(hist) for item in hist])
+        image_feats.append(hist)
 
         img.close()
     

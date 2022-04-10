@@ -7,24 +7,39 @@ from torch.utils.data import DataLoader
 import torch.optim as optim 
 import torch.nn as nn
 
-from myModels import  myLeNet, myResnet
+from myModels import  myLeNet, myResnet, residual_block
 from myDatasets import  get_cifar10_train_val_set
 from tool import train, fixed_seed
 
 # Modify config if you are conducting different models
-from cfg import LeNet_cfg as cfg
+# from cfg import LeNet_cfg as cfg
+from cfg import *
+import argparse
+import sys
+from torchvision import models
 
 
-def train_interface():
+def train_interface(args):
     
     """ input argumnet """
 
-    data_root = cfg['data_root']
-    model_type = cfg['model_type']
-    num_out = cfg['num_out']
-    num_epoch = cfg['num_epoch']
-    split_ratio = cfg['split_ratio']
-    seed = cfg['seed']
+    if args.model == 'LeNet':
+        model_cfg = LeNet_cfg
+    elif args.model == 'myResnet':
+        model_cfg = myResnet_cfg
+    elif args.model == 'preTrained':
+        model_cfg = preTrained_cfg
+    else:
+        print('Unknown Model')
+        sys.exit(1)
+        
+
+    data_root = model_cfg['data_root']
+    model_type = model_cfg['model_type']
+    num_out = model_cfg['num_out']
+    num_epoch = model_cfg['num_epoch']
+    split_ratio = model_cfg['split_ratio']
+    seed = model_cfg['seed']
     
     # fixed random seed
     fixed_seed(seed)
@@ -45,13 +60,20 @@ def train_interface():
     
     
     """ training hyperparameter """
-    lr = cfg['lr']
-    batch_size = cfg['batch_size']
-    milestones = cfg['milestones']
-    
+    lr = model_cfg['lr']
+    batch_size = model_cfg['batch_size']
+    milestones = model_cfg['milestones']
+    model_optimizer = model_cfg['optimizer']
     
     ## Modify here if you want to change your model ##
-    model = myLeNet(num_out=num_out)
+
+    if model_type == 'LeNet':
+        model = myLeNet(num_out=num_out)
+    elif model_type == 'myResnet':
+        model = myResnet(residual_block, [2, 2, 2, 2, 2, 2]).to(device)
+    elif model_type == 'preTrained':
+        model = models.densenet121(pretrained=True)
+
     # print model's architecture
     print(model)
 
@@ -66,7 +88,11 @@ def train_interface():
     
     # define your loss function and optimizer to unpdate the model's parameters.
     
-    optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9,weight_decay=1e-6, nesterov=True)
+    if model_optimizer == 'SGD':
+        optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9,weight_decay=1e-6, nesterov=True)
+    elif model_optimizer == 'Adam':
+        optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-6)
+
     scheduler = optim.lr_scheduler.MultiStepLR(optimizer,milestones=milestones, gamma=0.1)
     
     # We often apply crossentropyloss for classification problem. Check it on pytorch if interested
@@ -78,15 +104,13 @@ def train_interface():
     ### TO DO ### 
     # Complete the function train
     # Check tool.py
-    train(model=model, train_loader=train_loader, val_loader=val_loader, 
+    train(model=model, model_name=model_type, train_loader=train_loader, val_loader=val_loader, train_set=train_set,
           num_epoch=num_epoch, log_path=log_path, save_path=save_path,
           device=device, criterion=criterion, optimizer=optimizer, scheduler=scheduler)
 
     
 if __name__ == '__main__':
-    train_interface()
-
-
-
-
-    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model', help='Model Name', type=str, default='LeNet')
+    args = parser.parse_args()
+    train_interface(args)

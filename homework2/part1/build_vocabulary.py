@@ -58,7 +58,7 @@ def build_vocabulary(image_paths, vocab_size):
     '''
 
     bag_of_features = []
-    step_size = 5
+    step_size = 16
 
     for img_path in image_paths:
         img = Image.open(img_path).convert('L')

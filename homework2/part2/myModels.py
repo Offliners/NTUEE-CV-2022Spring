@@ -34,38 +34,81 @@ class myLeNet(nn.Module):
         out = x
         return out
 
-    
-class residual_block(nn.Module):
-    def __init__(self, in_channels):
-        super(residual_block, self).__init__()
-        
-        self.conv1 = nn.Sequential(nn.Conv2d(in_channels=in_channels, out_channels=in_channels, kernel_size=3, padding=1),
-                                   nn.BatchNorm2d(in_channels))
 
-        self.relu = nn.ReLU()
+# Reference : https://github.com/yunjey/pytorch-tutorial/blob/master/tutorials/02-intermediate/deep_residual_network/main.py
+class residual_block(nn.Module):
+    def __init__(self, in_channels, out_channels, stride=1, downsample=None):
+        super(residual_block, self).__init__()
+
+        # self.conv1 = nn.Sequential(nn.Conv2d(in_channels=in_channels, out_channels=in_channels, kernel_size=3, padding=1), nn.BatchNorm2d(in_channels))
+        # self.relu = nn.ReLU()
+
+        self.conv1 = self.conv3x3(in_channels, out_channels, stride)
+        self.bn1 = nn.BatchNorm2d(out_channels)
+        self.relu = nn.ReLU(inplace=True)
+        self.conv2 = self.conv3x3(out_channels, out_channels)
+        self.bn2 = nn.BatchNorm2d(out_channels)
+        self.downsample = downsample
         
-    def forward(self,x):
+    def conv3x3(self, in_channels, out_channels, stride=1):
+        return nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1, bias=False)
+    
+    def forward(self, x):
         ## TO DO ## 
         # Perform residaul network. 
         # You can refer to our ppt to build the block. It's ok if you want to do much more complicated one. 
         # i.e. pass identity to final result before activation function 
-        pass
 
-        
+        residual = x
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+        out = self.conv2(out)
+        out = self.bn2(out)
+        if self.downsample:
+            residual = self.downsample(x)
+        out += residual
+        out = self.relu(out)
+        return out
+
+
 class myResnet(nn.Module):
-    def __init__(self, in_channels=3, num_out=10):
-        super(myResnet, self).__init__()
-        
-        self.stem_conv = nn.Conv2d(in_channels=in_channels, out_channels=64, kernel_size=3, padding=1)
+    def __init__(self, block, layers, num_classes=10):
+        # self.stem_conv = nn.Conv2d(in_channels=in_channels, out_channels=64, kernel_size=3, padding=1)
         
         ## TO DO ##
         # Define your own residual network here. 
         # Note: You need to use the residual block you design. It can help you a lot in training.
         # If you have no idea how to design a model, check myLeNet provided by TA above.
+
+        super(myResnet, self).__init__()
+        self.in_channels = 16
+        self.conv = self.conv3x3(3, 16)
+        self.bn = nn.BatchNorm2d(16)
+        self.relu = nn.ReLU(inplace=True)
+        self.layer1 = self.make_layer(block, 16, layers[0])
+        self.layer2 = self.make_layer(block, 32, layers[0], 2)
+        self.layer3 = self.make_layer(block, 64, layers[1], 2)
+        self.avg_pool = nn.AvgPool2d(8,ceil_mode=False)
+        self.fc = nn.Linear(64, num_classes)
         
-        pass
-        
-    def forward(self,x):
+    def make_layer(self, block, out_channels, blocks, stride=1):
+        downsample = None
+        if (stride != 1) or (self.in_channels != out_channels):
+            downsample = nn.Sequential(
+                self.conv3x3(self.in_channels, out_channels, stride=stride),
+                nn.BatchNorm2d(out_channels))
+        layers = []
+        layers.append(block(self.in_channels, out_channels, stride, downsample))
+        self.in_channels = out_channels
+        for i in range(1, blocks):
+            layers.append(block(out_channels, out_channels))
+        return nn.Sequential(*layers)
+    
+    def conv3x3(self, in_channels, out_channels, stride=1):
+        return nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1, bias=False)
+
+    def forward(self, x):
         ## TO DO ## 
         # Define the data path yourself by using the network member you define.
         # Note : It's important to print the shape before you flatten all of your nodes into fc layers.
@@ -73,4 +116,13 @@ class myResnet(nn.Module):
         # x = x.flatten(x)
         # print(x.shape)
 
-        pass
+        out = self.conv(x)
+        out = self.bn(out)
+        out = self.relu(out)
+        out = self.layer1(out)
+        out = self.layer2(out)
+        out = self.layer3(out)
+        out = self.avg_pool(out)
+        out = out.view(out.size(0), -1)
+        out = self.fc(out)
+        return out
