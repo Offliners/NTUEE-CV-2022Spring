@@ -38,7 +38,6 @@ def load_parameters(model, path):
     print("End of loading !!!")
 
 
-
 ## TO DO ##
 def plot_learning_curve(x, y, mode, curve_type, save_path):
     """_summary_
@@ -63,7 +62,7 @@ def plot_learning_curve(x, y, mode, curve_type, save_path):
     plt.close()
 
 
-def train(model, model_name, train_loader, val_loader, train_set, num_epoch, log_path, save_path, device, criterion, scheduler, optimizer):
+def train(model, model_name, train_loader, val_loader, num_epoch, log_path, save_path, device, criterion, scheduler, optimizer):
     start_train = time.time()
 
     overall_loss = np.zeros(num_epoch ,dtype=np.float32)
@@ -119,7 +118,7 @@ def train(model, model_name, train_loader, val_loader, train_set, num_epoch, log
         scheduler.step()
         
         # averaging training_loss and calculate accuracy
-        train_loss = train_loss / len(train_loader.dataset) 
+        train_loss = train_loss / len(train_loader.dataset)
         train_acc = corr_num / len(train_loader.dataset)
                 
         # record the training loss/acc

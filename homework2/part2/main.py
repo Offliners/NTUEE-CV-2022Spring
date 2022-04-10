@@ -17,6 +17,7 @@ from cfg import *
 import argparse
 import sys
 from torchvision import models
+# from torchsummary import summary
 
 
 def train_interface(args):
@@ -68,11 +69,11 @@ def train_interface(args):
     ## Modify here if you want to change your model ##
 
     if model_type == 'LeNet':
-        model = myLeNet(num_out=num_out)
+        model = myLeNet(num_out=num_out).to(device)
     elif model_type == 'myResnet':
-        model = myResnet(residual_block, [2, 2, 2, 2, 2, 2]).to(device)
+        model = myResnet(residual_block, [3, 3, 3, 3, 3, 3]).to(device)
     elif model_type == 'preTrained':
-        model = models.densenet121(pretrained=True)
+        model = models.densenet201(pretrained=False).to(device)
 
     # print model's architecture
     print(model)
@@ -82,9 +83,12 @@ def train_interface(args):
     # You need to define your cifar10_dataset yourself to get images and labels for earch data
     # Check myDatasets.py 
       
-    train_set, val_set =  get_cifar10_train_val_set(root=data_root, ratio=split_ratio)    
+    train_set, val_set =  get_cifar10_train_val_set(root=data_root, ratio=split_ratio) 
     train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False)
+
+    # classifier = model
+    # print(summary(classifier, (3, 32, 32), device=device))
     
     # define your loss function and optimizer to unpdate the model's parameters.
     
@@ -104,13 +108,13 @@ def train_interface(args):
     ### TO DO ### 
     # Complete the function train
     # Check tool.py
-    train(model=model, model_name=model_type, train_loader=train_loader, val_loader=val_loader, train_set=train_set,
+    train(model=model, model_name=model_type, train_loader=train_loader, val_loader=val_loader,
           num_epoch=num_epoch, log_path=log_path, save_path=save_path,
           device=device, criterion=criterion, optimizer=optimizer, scheduler=scheduler)
 
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', help='Model Name', type=str, default='LeNet')
+    parser.add_argument('--model', help='Model Name', type=str, default='myResnet')
     args = parser.parse_args()
     train_interface(args)

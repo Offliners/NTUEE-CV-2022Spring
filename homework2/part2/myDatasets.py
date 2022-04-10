@@ -107,5 +107,3 @@ class cifar10_dataset(Dataset):
             image = self.transform(image)
 
         return image, self.labels[idx]
-
-        
