@@ -45,8 +45,9 @@ def get_cifar10_train_val_set(root, ratio=0.9, cv=0):
     train_transform = transforms.Compose([
                 ## TO DO ##
                 # You can add some transforms here
+                transforms.RandomCrop(32, padding=4),
+                transforms.RandomHorizontalFlip(p=0.5),
                 transforms.RandomRotation(30),
-                transforms.RandomHorizontalFlip(),
                 # ToTensor is needed to convert the type, PIL IMG,  to the typ, float tensor.  
                 transforms.ToTensor(),
                 
@@ -72,7 +73,7 @@ def get_cifar10_train_val_set(root, ratio=0.9, cv=0):
 ## TO DO ##
 # Define your own cifar_10 dataset
 class cifar10_dataset(Dataset):
-    def __init__(self,images , labels=None , transform=None, prefix = './p2_data/train'):
+    def __init__(self, images, labels=None , transform=None, prefix = './p2_data/train'):
         
         # It loads all the images' file name and correspoding labels here
         self.images = images 
@@ -86,7 +87,7 @@ class cifar10_dataset(Dataset):
         # prefix of the files' names
         self.prefix = prefix
         
-        print(f'Number of images is {len(self.images)}')
+        # print(f'Number of images is {len(self.images)}')
     
     def __len__(self):
         return len(self.images)
@@ -99,10 +100,43 @@ class cifar10_dataset(Dataset):
         # You shall return image, label with type "long tensor" if it's training set
 
         img_name = self.images[idx]
-        img_path = os.path.join(self.prefix, img_name)
-        image = Image.open(img_path).convert('RGB')
+
+        if self.prefix.find('train') != -1 or self.prefix.find('public_test') != -1:
+            img_path = os.path.join(self.prefix, img_name)
+            image = Image.open(img_path).convert('RGB')
+        else:
+            image = Image.open(img_name).convert('RGB')
 
         if self.transform:
             image = self.transform(image)
 
         return image, self.labels[idx]
+
+def get_cifar10_unlabeled_set(path):
+    means = [0.485, 0.456, 0.406]
+    stds = [0.229, 0.224, 0.225]
+    val_transform = transforms.Compose([
+                transforms.ToTensor(),
+                transforms.Normalize(means, stds),
+            ])
+
+    return cifar10_unlabeled_dataset(images=path, transform=val_transform)
+
+
+class cifar10_unlabeled_dataset(Dataset):
+    def __init__(self, images, transform):
+        self.images = images
+        self.transform = transform
+        self.total_imgs = sorted(os.listdir(images))
+
+    def __len__(self):
+        return len(self.total_imgs)
+
+    def __getitem__(self, idx):
+        img_path = os.path.join(self.images, self.total_imgs[idx])
+        image = Image.open(img_path).convert("RGB")
+
+        if self.transform:
+            image = self.transform(image)
+        
+        return image, img_path

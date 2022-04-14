@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 
 from myDatasets import cifar10_dataset
 
+from torchvision.transforms import transforms
+
 
 def fixed_seed(myseed):
     np.random.seed(myseed)
@@ -62,7 +64,7 @@ def plot_learning_curve(x, y, mode, curve_type, save_path):
     plt.close()
 
 
-def train(model, model_name, train_loader, val_loader, num_epoch, log_path, save_path, device, criterion, scheduler, optimizer):
+def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader, num_epoch, log_path, save_path, device, criterion, scheduler, optimizer, batch_size):
     start_train = time.time()
 
     overall_loss = np.zeros(num_epoch ,dtype=np.float32)
@@ -79,10 +81,17 @@ def train(model, model_name, train_loader, val_loader, num_epoch, log_path, save
         train_loss = 0.0 
         corr_num = 0
 
+        pseudo_set, add_num, flag = get_pseudo_labels(unlabeled_set, model, batch_size)
+        if flag:
+            concat_dataset = torch.utils.data.ConcatDataset([train_set, pseudo_set])
+            train_loader_semi = torch.utils.data.DataLoader(concat_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+        else:
+            train_loader_semi = train_loader
+
         # training part
         # start training
         model.train()
-        for batch_idx, ( data, label,) in enumerate(tqdm(train_loader)):
+        for batch_idx, ( data, label,) in enumerate(tqdm(train_loader_semi)):
             # put the data and label on the device
             # note size of data (B,C,H,W) --> B is the batch size
             data = data.to(device)
@@ -118,8 +127,8 @@ def train(model, model_name, train_loader, val_loader, num_epoch, log_path, save
         scheduler.step()
         
         # averaging training_loss and calculate accuracy
-        train_loss = train_loss / len(train_loader.dataset)
-        train_acc = corr_num / len(train_loader.dataset)
+        train_loss = train_loss / len(train_loader_semi.dataset)
+        train_acc = corr_num / len(train_loader_semi.dataset)
                 
         # record the training loss/acc
         overall_loss[i], overall_acc[i] = train_loss, train_acc
@@ -197,3 +206,54 @@ def train(model, model_name, train_loader, val_loader, num_epoch, log_path, save
     plot_learning_curve(x, overall_loss, 'train', 'loss', f'save_dir/{model_name}')
     plot_learning_curve(x, overall_val_acc, 'valid', 'acc', f'save_dir/{model_name}')
     plot_learning_curve(x, overall_val_loss, 'valid', 'loss', f'save_dir/{model_name}')
+
+def get_pseudo_labels(dataset, model, batch_size, threshold=0.99):
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    data_loader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=False)
+
+    model.eval()
+    softmax = nn.Softmax(dim=-1)
+
+    pseudo_x = []
+    pseudo_y = []
+    class_num = 10
+    class_count = [0] * class_num
+    for i, data in enumerate(data_loader):
+        inputs, paths = data
+
+        with torch.no_grad():
+            logits = model(inputs.to(device))
+
+        probs = softmax(logits)
+        label = torch.where(torch.max(probs, dim=1)[0] > threshold, torch.argmax(probs,dim=1), -1)
+        label = label.cpu()
+        for j in range(len(label)):
+            if label[j] != -1:
+                pseudo_x.append(paths[j])
+                pseudo_y.append(label[j])
+                class_count[label[j]] += 1
+    
+    print(f"Pseudo Labeling : {len(pseudo_x)}")
+    for k in range(class_num):
+        print(f'Class Id {k} : {class_count[k]}')
+
+    model.train()
+    if len(pseudo_x) > 0:
+        flag = 1
+
+        means = [0.485, 0.456, 0.406]
+        stds = [0.229, 0.224, 0.225]
+        train_transform = transforms.Compose([
+                    transforms.RandomCrop(32, padding=4),
+                    transforms.RandomHorizontalFlip(p=0.5),
+                    transforms.RandomRotation(30),
+                    transforms.ToTensor(),
+                    transforms.Normalize(means, stds),
+                ])
+
+        pseudo_dataset = cifar10_dataset(pseudo_x, np.array(pseudo_y), train_transform, './p2_data/unlabeled')
+        return pseudo_dataset, len(pseudo_x), flag
+    else:
+        flag = 0
+        return None, 0, flag

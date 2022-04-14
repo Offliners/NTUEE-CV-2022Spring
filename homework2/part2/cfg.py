@@ -13,11 +13,10 @@ LeNet_cfg = {
     
     # training hyperparameters
     'batch_size': 32,
-    'lr':0.001,
+    'lr':0.01,
     'milestones': [20, 40],
     'num_out': 10,
-    'num_epoch': 60,
-    'optimizer': 'SGD',
+    'num_epoch': 100,
 }
 
 myResnet_cfg = {
@@ -31,15 +30,14 @@ myResnet_cfg = {
     
     # training hyperparameters
     'batch_size': 32,
-    'lr':0.001,
-    'milestones': [20, 40],
+    'lr':0.01,
+    'milestones': [50, 75],
     'num_out': 10,
-    'num_epoch': 60,
-    'optimizer': 'Adam',
+    'num_epoch': 100,
 }
 
-preTrained_cfg = {
-    'model_type': 'preTrained',
+DLA_cfg = {
+    'model_type': 'DLA',
     'data_root' : './p2_data/annotations/train_annos.json',
     
     # ratio of training images and validation images 
@@ -49,9 +47,8 @@ preTrained_cfg = {
     
     # training hyperparameters
     'batch_size': 32,
-    'lr':0.001,
-    'milestones': [20, 40],
+    'lr':0.01,
+    'milestones': [50, 75],
     'num_out': 10,
-    'num_epoch': 60,
-    'optimizer': 'Adam',
+    'num_epoch': 100,
 }

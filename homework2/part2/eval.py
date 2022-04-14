@@ -9,7 +9,7 @@ import argparse
 from tqdm import tqdm
 
 from tool import load_parameters
-from myModels import myResnet, myLeNet, residual_block
+from myModels import myResnet, myLeNet, residual_block, DLA, BasicBlock
 from myDatasets import cifar10_dataset
 
 from torchvision import models
@@ -53,11 +53,11 @@ def main():
     if args.model == 'LeNet':
         model = myLeNet(num_out=10)
     elif args.model == 'myResnet':
-        model = myResnet(residual_block, [3, 3, 3, 3, 3, 3]).to(device)
-    elif args.model == 'preTrained':
-        model = models.densenet201(pretrained=False)
+        model = myResnet(residual_block).to(device)
+    elif args.model == 'DLA':
+        model = DLA(BasicBlock).to(device)
 
-    
+
     # Simply load parameters
     load_parameters(model=model, path=path)
     model.to(device)

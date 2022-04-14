@@ -5,7 +5,7 @@
 $ python3 main.py --model LeNet    
 
 # 測試LeNet在public test set的accuracy
-$ python3 eval.py --model LeNet --path ./save_dir/LeNet/best_model.pt --test_anno ./p2_data/annotations/public_test_annos.json
+$ python3 eval.py --model LeNet --path ./save_dir/LeNet/best_model.pt
 ```
 
 ### myResnet
