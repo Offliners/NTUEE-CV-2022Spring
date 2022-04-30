@@ -19,8 +19,19 @@ def solve_homography(u, v):
         print('At least 4 points should be given')
 
     # TODO: 1.forming A
+    u_x = np.transpose([u[:, 0]])
+    u_y = np.transpose([u[:, 1]])
+    v_x = np.transpose([v[:, 0]])
+    v_y = np.transpose([v[:, 1]])
+
+    A_u = np.hstack((u_x, u_y, np.ones((N, 1)), np.zeros((N, 3)), -1 * u_x * v_x, -1 * u_y * v_x, -1 * v_x))
+    A_v = np.hstack((np.zeros((N, 3)), u_x, u_y, np.ones((N, 1)), -1 * u_x * v_y, -1 * u_y * v_y, -1 * v_y))
+    A = np.vstack((A_u, A_v))
 
     # TODO: 2.solve H with A
+    _, _, VT = np.linalg.svd(A)
+    h = VT[-1,:] / VT[-1,-1]
+    H = h.reshape(3, 3)
 
     return H
 
