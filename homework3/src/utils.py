@@ -1,5 +1,5 @@
 import numpy as np
-
+import cv2
 
 def solve_homography(u, v):
     """
@@ -74,29 +74,59 @@ def warping(src, dst, H, ymin, ymax, xmin, xmax, direction='b'):
     H_inv = np.linalg.inv(H)
 
     # TODO: 1.meshgrid the (x,y) coordinate pairs
+    u_x, u_y = np.meshgrid(np.arange(xmin, xmax), np.arange(ymin, ymax))
+    u_x = u_x.reshape(-1).astype(int)
+    u_y = u_y.reshape(-1).astype(int)
 
     # TODO: 2.reshape the destination pixels as N x 3 homogeneous coordinate
+    u = np.vstack((u_x, u_y, np.ones(len(u_x))))
 
     if direction == 'b':
         # TODO: 3.apply H_inv to the destination pixels and retrieve (u,v) pixels, then reshape to (ymax-ymin),(xmax-xmin)
+        H_inv = np.linalg.inv(H)
+        v = H_inv @ u
+        v = v / v[-1]
+        v_x = np.round(v[0]).astype(int)
+        v_y = np.round(v[1]).astype(int)
 
         # TODO: 4.calculate the mask of the transformed coordinate (should not exceed the boundaries of source image)
+        mask = np.where((v_x >= 0) & (v_x < w_src) & (v_y >= 0) & (v_y < h_src))
 
         # TODO: 5.sample the source image with the masked and reshaped transformed coordinates
+        u_x, u_y = u_x[mask], u_y[mask]
+        v_x, v_y = v_x[mask], v_y[mask]
 
         # TODO: 6. assign to destination image with proper masking
-
-        pass
+        dst[u_y, u_x] = bilinear(src, v_x, v_y)
 
     elif direction == 'f':
         # TODO: 3.apply H to the source pixels and retrieve (u,v) pixels, then reshape to (ymax-ymin),(xmax-xmin)
+        v = H @ u
+        v = v / v[-1]
+        v_x = np.round(v[0]).astype(int)
+        v_y = np.round(v[1]).astype(int)
 
         # TODO: 4.calculate the mask of the transformed coordinate (should not exceed the boundaries of destination image)
+        mask = np.where((v_x >= 0) & (v_x < w_dst) & (v_y >= 0) & (v_y < h_dst))
 
         # TODO: 5.filter the valid coordinates using previous obtained mask
+        u_x, u_y = u_x[mask], u_y[mask]
+        v_x, v_y = v_x[mask], v_y[mask]
 
         # TODO: 6. assign to destination image using advanced array indicing
-
-        pass
+        dst[v_y, v_x] = bilinear(src, u_x, u_y)
 
     return dst
+
+def bilinear(image, x, y):
+    x0 = np.floor(x).astype(int) - 1
+    x1 = x0 + 1
+    y0 = np.floor(y).astype(int) - 1
+    y1 = y0 + 1
+    
+    wa = np.repeat((y1 - y) * (x1 - x), 3).reshape((-1, 3))
+    wb = np.repeat((x1 - x) * (y - y0), 3).reshape((-1, 3))
+    wd = np.repeat((x - x0) * (y1 - y), 3).reshape((-1, 3))
+    wc = np.repeat((x - x0) * (y - y0), 3).reshape((-1, 3))
+
+    return wa * image[y0, x0] + wb * image[y1, x0] + wc * image[y1, x1] + wd * image[y0, x1]

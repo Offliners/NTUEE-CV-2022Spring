@@ -21,7 +21,6 @@ def transform(img, canvas, corners):
     
     return  warping(img, canvas, H, 0, h, 0, w, direction='f')
 
-
 if __name__ == "__main__":
 
     # ================== Part 1: Homography Estimation ========================
