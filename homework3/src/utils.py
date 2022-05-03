@@ -74,7 +74,7 @@ def warping(src, dst, H, ymin, ymax, xmin, xmax, direction='b'):
     H_inv = np.linalg.inv(H)
 
     # TODO: 1.meshgrid the (x,y) coordinate pairs
-    u_x, u_y = np.meshgrid(np.arange(xmin, xmax), np.arange(ymin, ymax))
+    u_x, u_y = np.meshgrid(np.arange(xmin, xmax), np.arange(ymin, ymax)) # , sparse=False
     u_x = u_x.reshape(-1).astype(int)
     u_y = u_y.reshape(-1).astype(int)
 
@@ -86,11 +86,15 @@ def warping(src, dst, H, ymin, ymax, xmin, xmax, direction='b'):
         H_inv = np.linalg.inv(H)
         v = H_inv @ u
         v = v / v[-1]
-        v_x = np.round(v[0]).astype(int)
-        v_y = np.round(v[1]).astype(int)
+
+        v_x = v[0]
+        v_y = v[1]
+        # v_x = np.round(v[0]).astype(int)
+        # v_y = np.round(v[1]).astype(int)
 
         # TODO: 4.calculate the mask of the transformed coordinate (should not exceed the boundaries of source image)
-        mask = np.where((v_x >= 0) & (v_x < w_src) & (v_y >= 0) & (v_y < h_src))
+        mask = np.where((v_x >= 0) & (v_x < w_src - 1) & (v_y >= 0) & (v_y < h_src - 1))
+        # mask = np.where((v_x >= 0) & (v_x < w_src) & (v_y >= 0) & (v_y < h_src))
 
         # TODO: 5.sample the source image with the masked and reshaped transformed coordinates
         u_x, u_y = u_x[mask], u_y[mask]
@@ -98,6 +102,7 @@ def warping(src, dst, H, ymin, ymax, xmin, xmax, direction='b'):
 
         # TODO: 6. assign to destination image with proper masking
         dst[u_y, u_x] = bilinear(src, v_x, v_y)
+        # dst[u_y, u_x] = src[v_y, v_x]
 
     elif direction == 'f':
         # TODO: 3.apply H to the source pixels and retrieve (u,v) pixels, then reshape to (ymax-ymin),(xmax-xmin)
@@ -114,14 +119,14 @@ def warping(src, dst, H, ymin, ymax, xmin, xmax, direction='b'):
         v_x, v_y = v_x[mask], v_y[mask]
 
         # TODO: 6. assign to destination image using advanced array indicing
-        dst[v_y, v_x] = bilinear(src, u_x, u_y)
+        dst[v_y, v_x] = src[u_y, u_x]
 
     return dst
 
 def bilinear(image, x, y):
-    x0 = np.floor(x).astype(int) - 1
+    x0 = np.floor(x).astype(int)
     x1 = x0 + 1
-    y0 = np.floor(y).astype(int) - 1
+    y0 = np.floor(y).astype(int)
     y1 = y0 + 1
     
     wa = np.repeat((y1 - y) * (x1 - x), 3).reshape((-1, 3))
