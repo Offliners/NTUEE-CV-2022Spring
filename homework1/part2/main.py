@@ -15,10 +15,10 @@ def main():
     img_gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
     ### TODO ###
-    RGB_weights_1 = np.array([[0.0, 0.0, 1.0],
-                              [0.0, 1.0, 0.0],
-                              [0.1, 0.0, 0.9],
-                              [0.1, 0.4, 0.5],
+    RGB_weights_1 = np.array([#[0.0, 0.0, 1.0],
+                              #[0.0, 1.0, 0.0],
+                              #[0.1, 0.0, 0.9],
+                              #[0.1, 0.4, 0.5],
                               [0.8, 0.2, 0.0]
                             ])
                         
@@ -57,8 +57,8 @@ def cal_error(img_rgb, img_gray, sigma_s, sigma_r):
     print(f'Error: {error}')
     print()
 
-    # jbf_out = cv2.cvtColor(jbf_out, cv2.COLOR_RGB2BGR)
-    # cv2.imwrite('filterd_rgb.png', jbf_out)
+    jbf_out = cv2.cvtColor(jbf_out, cv2.COLOR_RGB2BGR)
+    cv2.imwrite('filterd_rgb.png', jbf_out)
 
 
 if __name__ == '__main__':
