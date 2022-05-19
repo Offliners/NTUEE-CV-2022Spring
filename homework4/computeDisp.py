@@ -21,25 +21,25 @@ def computeDisp(Il, Ir, max_disp):
     # [Tips] Census cost = Local binary pattern -> Hamming distance
     # [Tips] Set costs of out-of-bound pixels = cost of closest valid pixel  
     # [Tips] Compute cost both "Il to Ir" and "Ir to Il" for later left-right consistency
-    Il_pattern = np.zeros((h, w, window_size * window_size, 1), dtype=np.bool)
-    Ir_pattern = np.zeros((h, w, window_size * window_size, 1), dtype=np.bool)
+    Il_pattern = np.zeros((h, w, window_size * window_size, 1)).astype(np.bool)
+    Ir_pattern = np.zeros((h, w, window_size * window_size, 1)).astype(np.bool)
     for i, j in itertools.product(range(h), range(w)):
         Il_pattern[i, j] = (Il_padding[i: i + window_size, j: j + window_size] < Il_padding[i + padding_size, j + padding_size]).reshape(-1, 1)
         Ir_pattern[i, j] = (Ir_padding[i: i + window_size, j: j + window_size] < Ir_padding[i + padding_size, j + padding_size]).reshape(-1, 1)
 
-    Il_cost = np.ones((h, w, max_disp + 1), dtype=np.float32) * (window_size ** 2)
-    Ir_cost = np.ones((h, w, max_disp + 1), dtype=np.float32) * (window_size ** 2)
+    Il_cost = np.ones((h, w, max_disp + 1)).astype(np.float32) * (window_size ** 2)
+    Ir_cost = np.ones((h, w, max_disp + 1)).astype(np.float32) * (window_size ** 2)
     
     for i, j in itertools.product(range(h), range(w)):
-        Il_cost[i, j, :j + 1] = np.logical_xor(Il_pattern[i, j], Ir_pattern[i, j::-1])[:max_disp+1].sum(-1).sum(-1)
-        Ir_cost[i, j, :w - j] = np.logical_xor(Ir_pattern[i, j], Il_pattern[i, j:w:])[:max_disp+1].sum(-1).sum(-1)
+        Il_cost[i, j, :j + 1] = np.logical_xor(Il_pattern[i, j], Ir_pattern[i, j::-1])[:max_disp + 1].sum(-1).sum(-1)
+        Ir_cost[i, j, :w - j] = np.logical_xor(Ir_pattern[i, j], Il_pattern[i, j:w:])[:max_disp + 1].sum(-1).sum(-1)
 
     # >>> Cost Aggregation
     # TODO: Refine the cost according to nearby costs
     # [Tips] Joint bilateral filter (for the cost of each disparty)
     for shift in range(max_disp + 1):
-        Il_cost[:, :, shift] = xip.jointBilateralFilter(Il_gray, Il_cost[:, :, shift], -1, 3, 9)
-        Ir_cost[:, :, shift] = xip.jointBilateralFilter(Ir_gray, Ir_cost[:, :, shift], -1, 3, 9)
+        Il_cost[:, :, shift] = xip.jointBilateralFilter(Il_gray, Il_cost[:, :, shift], 12, 0.5, 12)
+        Ir_cost[:, :, shift] = xip.jointBilateralFilter(Ir_gray, Ir_cost[:, :, shift], 12, 0.5, 12)
 
     # >>> Disparity Optimization
     # TODO: Determine disparity based on estimated cost.
@@ -68,6 +68,6 @@ def computeDisp(Il, Ir, max_disp):
                     Il_labels[i, j] = min(Il_labels[i, j], Il_labels[i, k])
                     break
 
-    labels = xip.weightedMedianFilter(Il.astype(np.uint8), Il_labels.astype(np.float32), 18, 1)
+    labels = xip.weightedMedianFilter(Il.astype(np.uint8), Il_labels.astype(np.float32), 12, 24)
 
     return labels.astype(np.uint8)
