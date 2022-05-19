@@ -1,6 +1,16 @@
 # Homework 1 - Scale Invariant Feature Detection and Image Filtering
 Detail : [Link](hw1.pdf)
 
+## Usage
+```shell
+# Build anaconda virtual environment
+conda create --name dlcv_hw1 python=3.6.9
+conda activate dlcv_hw1
+
+# Install required package
+pip3 install -r requirements.txt
+```
+
 ## Part 1
 ### Visualize the DoG images for 1.png
 ||DoG Image (threshold = 5)||DoG Image (threshold = 5)|
