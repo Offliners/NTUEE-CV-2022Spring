@@ -31,4 +31,8 @@ Detail : [Link](hw1.pdf)
 ### Show original RGB image / two filtered RGB images and two grayscale images with highest and lowest cost
 |Original RGB image (1.png)|Filtered RGB image and Grayscale image of Highest cost|Filtered RGB image and Grayscale image of Lowest cost|
 |-|-|-|
-|![Original RGB image](./part2/testdata/1.png)|![Filtered RGB image](./part2/filter_image/highest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image/highest_cost/filterd_gray.png)|![Filtered RGB image](./part2/filter_image/lowest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image/lowest_cost/filterd_gray.png)|
+|![Original RGB image](./part2/testdata/1.png)|![Filtered RGB image](./part2/filter_image_1/highest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image_1/highest_cost/filterd_gray.png)|![Filtered RGB image](./part2/filter_image_1/lowest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image_1/lowest_cost/filterd_gray.png)|
+
+|Original RGB image (2.png)|Filtered RGB image and Grayscale image of Highest cost|Filtered RGB image and Grayscale image of Lowest cost|
+|-|-|-|
+|![Original RGB image](./part2/testdata/2.png)|![Filtered RGB image](./part2/filter_image_2/highest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image_2/highest_cost/filterd_gray.png)|![Filtered RGB image](./part2/filter_image_2/lowest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image_2/lowest_cost/filterd_gray.png)|
