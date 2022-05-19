@@ -16,7 +16,7 @@ pip3 install -r requirements.txt
 ![output1.png](./src/output1.png)
 
 ## Part 2 - Marker-Based Planar AR
-
+![output2.gif](./src/output2.gif)
 
 ## Part 3 - Unwarp the secret
 ### Paste the 2 warped images (Nearest Neighbor)
