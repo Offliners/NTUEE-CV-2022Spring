@@ -46,3 +46,18 @@ $ pip3 install -r requirements.txt
 |Original RGB image (2.png)|Filtered RGB image and Grayscale image of Highest cost|Filtered RGB image and Grayscale image of Lowest cost|
 |-|-|-|
 |![Original RGB image](./part2/testdata/2.png)|![Filtered RGB image](./part2/filter_image_2/highest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image_2/highest_cost/filterd_gray.png)|![Filtered RGB image](./part2/filter_image_2/lowest_cost/filterd_rgb.png)![Filtered Gray image](./part2/filter_image_2/lowest_cost/filterd_gray.png)|
+
+## Reference time on ex.png
+#### TA's JBF.so
+```shell
+[Time] 8.0462 sec
+[Error] Bilateral: 0
+[Error] Joint bilateral: 0
+```
+
+#### Mine
+```shell
+[Time] 5.9806 sec
+[Error] Bilateral: 0
+[Error] Joint bilateral: 0
+```

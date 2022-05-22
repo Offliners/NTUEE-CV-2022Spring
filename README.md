@@ -28,4 +28,6 @@ CPU : `Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz`
 
 GPU : `GeForce GTX 1080 Ti` * 2
 
+RAM : `32GB`
+
 OS : `Ubuntu 18.04`
