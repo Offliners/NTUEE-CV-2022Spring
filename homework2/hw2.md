@@ -1,17 +1,19 @@
 # Homework 2 - Scene Recognition & Image Classification Using CNN
 Detail : [Link](hw2.pdf)
 
+Dataset : [Link](https://drive.google.com/u/1/uc?id=1Uq1_00JtfZ8ETueo8RjPvL6ANhIc1qvD&export=download)
+
 ## Usage
 ```shell
 # Build anaconda virtual environment
-conda create --name dlcv_hw2 python=3.7.6
-conda activate dlcv_hw2
-
-# Install cyvlfeat
-conda install -c conda-forge cyvlfeat
+$ conda create --name dlcv_hw2 python=3.7.6
+$ conda activate dlcv_hw2
 
 # Install required package
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
+
+# Install cyvlfeat
+$ conda install -c conda-forge cyvlfeat
 ```
 
 ## Part 1

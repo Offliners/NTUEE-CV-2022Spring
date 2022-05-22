@@ -4,11 +4,11 @@ Detail : [Link](hw1.pdf)
 ## Usage
 ```shell
 # Build anaconda virtual environment
-conda create --name dlcv_hw1 python=3.6.9
-conda activate dlcv_hw1
+$ conda create --name dlcv_hw1 python=3.6.9
+$ conda activate dlcv_hw1
 
 # Install required package
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 ## Part 1
