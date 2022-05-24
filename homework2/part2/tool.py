@@ -63,11 +63,15 @@ def plot_learning_curve(x, y, mode, curve_type, save_path):
     plt.savefig(os.path.join(save_path, f'{mode}/{curve_type}.png'))
     plt.close()
 
-def plot_pseudo_labeling(x, y, save_path):
-    plt.plot(x, y, label=f'{mode} {curve_type}')
+def plot_pseudo_labels(x, pseudo_labels, mod, save_path):
+    x = np.arange(0, len(pseudo_labels), mod)
+    pseudo_labels = np.array(pseudo_labels).T
+    for i in range(10):
+        plt.plot(x, pseudo_labels[i], label=f'Class Id {i}')
+    
     plt.xlabel('Epoch')
-    plt.ylabel(f'{curve_type}')
-    plt.title(f'Learning curve of {mode} {curve_type}')
+    plt.ylabel(f'Pseudo label Amount')
+    plt.title('Pseudo label Amount')
     plt.legend()
 
     os.makedirs(save_path, exist_ok=True)
@@ -84,7 +88,7 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
     overall_val_acc = np.zeros(num_epoch ,dtype = np.float32)
 
     best_acc = 0
-    mod = 25
+    mod = 10
     pseudo_labels = []
     for i in range(num_epoch):
         print(f'epoch = {i}')
@@ -94,7 +98,7 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
         corr_num = 0
 
         if i % mod == 0:
-            pseudo_set, add_num, flag, pseudo_label = get_pseudo_labels(unlabeled_set, model, batch_size)
+            pseudo_set, add_num, flag, pseudo_label = get_pseudo_labels(unlabeled_set, model, device, batch_size)
             pseudo_labels.append(pseudo_label)
             if flag:
                 concat_dataset = torch.utils.data.ConcatDataset([train_set, pseudo_set])
@@ -220,9 +224,10 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
     plot_learning_curve(x, overall_loss, 'train', 'loss', f'save_dir/{model_name}')
     plot_learning_curve(x, overall_val_acc, 'valid', 'acc', f'save_dir/{model_name}')
     plot_learning_curve(x, overall_val_loss, 'valid', 'loss', f'save_dir/{model_name}')
+    plot_pseudo_labels(x, pseudo_labels, mod, f'save_dir/{model_name}')
 
-def get_pseudo_labels(dataset, model, batch_size, threshold=0.99):
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+def get_pseudo_labels(dataset, model, device, batch_size, threshold=0.99):
 
     data_loader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=False)
 
@@ -261,13 +266,12 @@ def get_pseudo_labels(dataset, model, batch_size, threshold=0.99):
         train_transform = transforms.Compose([
                     transforms.RandomCrop(32, padding=4),
                     transforms.RandomHorizontalFlip(p=0.5),
-                    transforms.RandomRotation(30),
                     transforms.ToTensor(),
                     transforms.Normalize(means, stds),
                 ])
 
         pseudo_dataset = cifar10_dataset(pseudo_x, np.array(pseudo_y), train_transform, './p2_data/unlabeled')
-        return pseudo_dataset, len(pseudo_x), flag
+        return pseudo_dataset, len(pseudo_x), flag, class_count
     else:
         flag = 0
-        return None, 0, flag
+        return None, 0, flag, class_count

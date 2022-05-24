@@ -47,7 +47,6 @@ def get_cifar10_train_val_set(root, ratio=0.9, cv=0):
                 # You can add some transforms here
                 transforms.RandomCrop(32, padding=4),
                 transforms.RandomHorizontalFlip(p=0.5),
-                transforms.RandomRotation(30),
                 # ToTensor is needed to convert the type, PIL IMG,  to the typ, float tensor.  
                 transforms.ToTensor(),
                 

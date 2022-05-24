@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 import torch.optim as optim 
 import torch.nn as nn
 
-from myModels import  myLeNet, myResnet, residual_block, DLA, BasicBlock
+from myModels import  myLeNet, myResnet
 from myDatasets import  get_cifar10_train_val_set, get_cifar10_unlabeled_set
 from tool import train, fixed_seed
 
@@ -17,7 +17,7 @@ from cfg import *
 import argparse
 import sys
 from torchvision import models
-# from torchsummary import summary
+from torchsummary import summary
 
 
 def train_interface(args):
@@ -28,8 +28,6 @@ def train_interface(args):
         model_cfg = LeNet_cfg
     elif args.model == 'myResnet':
         model_cfg = myResnet_cfg
-    elif args.model == 'DLA':
-        model_cfg = DLA_cfg
     else:
         print('Unknown Model')
         sys.exit(1)
@@ -56,23 +54,19 @@ def train_interface(args):
         pass
     
     ## training setting ##
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    #device = torch.device('cpu') 
+    device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
     
     
     """ training hyperparameter """
     lr = model_cfg['lr']
     batch_size = model_cfg['batch_size']
-    milestones = model_cfg['milestones']
     
     ## Modify here if you want to change your model ##
 
     if model_type == 'LeNet':
         model = myLeNet(num_out=num_out).to(device)
     elif model_type == 'myResnet':
-        model = myResnet(residual_block).to(device)
-    elif model_type == 'DLA':
-        model = DLA(BasicBlock).to(device)
+        model = myResnet().to(device)
 
     # print model's architecture
     print(model)
@@ -87,15 +81,14 @@ def train_interface(args):
     train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False)
 
-    # classifier = model
-    # print(summary(classifier, (3, 32, 32), device=device))
+    print(summary(model.cuda(), (3, 32, 32)))
     
     # define your loss function and optimizer to unpdate the model's parameters.
     
-    optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9,weight_decay=1e-6, nesterov=True)
+    optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
 
-    scheduler = optim.lr_scheduler.MultiStepLR(optimizer,milestones=milestones, gamma=0.1)
-    # scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20)
+    # scheduler = optim.lr_scheduler.MultiStepLR(optimizer,milestones=milestones, gamma=0.1)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100)
     
     # We often apply crossentropyloss for classification problem. Check it on pytorch if interested
     criterion = nn.CrossEntropyLoss()

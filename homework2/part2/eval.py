@@ -9,7 +9,7 @@ import argparse
 from tqdm import tqdm
 
 from tool import load_parameters
-from myModels import myResnet, myLeNet, residual_block, DLA, BasicBlock
+from myModels import myResnet, myLeNet
 from myDatasets import cifar10_dataset
 
 from torchvision import models
@@ -45,7 +45,7 @@ def main():
     
     # change your model here 
 
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
     #device = torch.device('cpu')
 
     ## TO DO ## 
@@ -53,10 +53,7 @@ def main():
     if args.model == 'LeNet':
         model = myLeNet(num_out=10)
     elif args.model == 'myResnet':
-        model = myResnet(residual_block).to(device)
-    elif args.model == 'DLA':
-        model = DLA(BasicBlock).to(device)
-
+        model = myResnet().to(device)
 
     # Simply load parameters
     load_parameters(model=model, path=path)
