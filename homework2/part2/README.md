@@ -1,18 +1,18 @@
 # Usage
 ### LeNet
 ```shell
-# 跑助教的LeNet模型
+# Train LeNet model
 $ python3 main.py --model LeNet    
 
-# 測試LeNet在public test set的accuracy
+# Evaluate LeNet on public test set
 $ python3 eval.py --model LeNet --path ./save_dir/LeNet/best_model.pt
 ```
 
 ### myResnet
 ```shell
-# 跑學生的myResnet模型，已經設好預設值
-$ python3 main.py                  
+# Train myResnet model
+$ python3 main.py --model myResnet                 
 
-# 測試myResnet在public test set的accuracy
-$ python3 eval.py                  
+# Evaluate myResnet on public test set
+$ python3 eval.py --model myResnet --path ./save_dir/myResnet/best_model.pt              
 ```

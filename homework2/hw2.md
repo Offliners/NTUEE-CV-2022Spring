@@ -26,8 +26,22 @@ $ conda install -c conda-forge cyvlfeat
 ## Part 2
 ### Compare the performance on residual networks and LeNet. Plot the learning curve (loss and accuracy) on both training and validation sets for both 2 schemes. 8 plots in total
 
+|Hyperparameter|Value|
+|-|-|
+|Split ratio|0.9|
+|Batch size|128|
+|Learning rate|0.01|
+|Epoch|200|
+|Optimizer|SGD|
+|Momentum|0.9|
+|Weight decay|0.0005|
+|Learning rate scheduler|CosineAnnealingLR|
+|Tmax|100|
+|Loss function|CrossEntropy|
+|Add pseudo labels|per 25 epochs|
+
 ### LeNet (with pseudo label)
-* Model Summary
+* #### Model Summary
 ```markdown
 ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
@@ -60,12 +74,16 @@ Estimated Total Size (MB): 0.36
 |Training|![loss.png](./part2/save_dir/LeNet/train/loss.png)|![acc.png](./part2/save_dir/LeNet/train/acc.png)|
 |Validation|![loss.png](./part2/save_dir/LeNet/valid/loss.png)|![acc.png](./part2/save_dir/LeNet/valid/acc.png)
 
-* Pseudo Label
-![pseudo label](./part2/save_dir/LeNet/pseudo_label.png)
+* #### Pseudo Label
+    ![pseudo label](./part2/save_dir/LeNet/pseudo_label.png)
+
+* #### Evaluation
+    Total training time : `59 min 51 sec` 
+    Accuracy : `66.98%`
 
 
 ### My Resnet (with pseudo label)
-* Model Summary
+* #### Model Summary
 ```markdown
 ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
@@ -136,5 +154,9 @@ Estimated Total Size (MB): 53.89
 |Training|![loss.png](./part2/save_dir/myResnet/train/loss.png)|![acc.png](./part2/save_dir/myResnet/train/acc.png)|
 |Validation|![loss.png](./part2/save_dir/myResnet/valid/loss.png)|![acc.png](./part2/save_dir/myResnet/valid/acc.png)
 
-* Pseudo Label
-![pseudo label](./part2/save_dir/myResnet/pseudo_label.png)
+* #### Pseudo Label
+    ![pseudo label](./part2/save_dir/myResnet/pseudo_label.png)
+
+* #### Evaluation
+    Total training time : `59 min 51 sec` 
+    Accuracy : `66.98%`

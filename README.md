@@ -26,7 +26,7 @@ $ conda env remove -n {virtual environment name}
 ## My Hardware & OS Information
 CPU : `Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz`
 
-GPU : `GeForce GTX 1080 Ti` * 2
+GPU : `GeForce GTX 1080 Ti`
 
 RAM : `32GB`
 

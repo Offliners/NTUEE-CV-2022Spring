@@ -64,7 +64,7 @@ def plot_learning_curve(x, y, mode, curve_type, save_path):
     plt.close()
 
 def plot_pseudo_labels(x, pseudo_labels, mod, save_path):
-    x = np.arange(0, len(pseudo_labels), mod)
+    x = np.arange(0, len(x), mod)
     pseudo_labels = np.array(pseudo_labels).T
     for i in range(10):
         plt.plot(x, pseudo_labels[i], label=f'Class Id {i}')

@@ -54,7 +54,7 @@ def train_interface(args):
         pass
     
     ## training setting ##
-    device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     
     """ training hyperparameter """
@@ -88,7 +88,7 @@ def train_interface(args):
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
 
     # scheduler = optim.lr_scheduler.MultiStepLR(optimizer,milestones=milestones, gamma=0.1)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100)
+    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, 0.1, epochs=num_epoch)
     
     # We often apply crossentropyloss for classification problem. Check it on pytorch if interested
     criterion = nn.CrossEntropyLoss()
