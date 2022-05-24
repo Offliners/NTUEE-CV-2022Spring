@@ -1,805 +1,425 @@
 epoch = 0
-time = 0.0000 MIN 46.7860 SEC, total time = 0.0000 Min 46.7861 SEC
-training loss : 0.014663305322905093  train acc = 0.3160869565217391
-val loss : 1.733119010925293  val acc = 0.3910030424594879
+time = 1.0000 MIN 37.3125 SEC, total time = 1.0000 Min 37.3125 SEC
+training loss : 0.007569764368775962  train acc = 0.29246376811594205
+val loss : 1.9589355521731906  val acc = 0.33698469400405884
 ============================
 epoch = 1
-time = 0.0000 MIN 27.7029 SEC, total time = 1.0000 Min 14.6613 SEC
-training loss : 0.012131303859793621  train acc = 0.4464734299516908
-val loss : 1.6124989059236314  val acc = 0.4558551609516144
+time = 0.0000 MIN 55.4561 SEC, total time = 2.0000 Min 33.1605 SEC
+training loss : 0.0063440205336768845  train acc = 0.41589371980676326
+val loss : 1.708409521314833  val acc = 0.40826860070228577
 ============================
 epoch = 2
-time = 0.0000 MIN 27.6333 SEC, total time = 1.0000 Min 42.4814 SEC
-training loss : 0.010721195245134658  train acc = 0.5185024154589372
-val loss : 1.5566014647483826  val acc = 0.5017641186714172
+time = 0.0000 MIN 55.6147 SEC, total time = 3.0000 Min 29.1762 SEC
+training loss : 0.0056787860105579025  train acc = 0.4875845410628019
+val loss : 1.5117036236657038  val acc = 0.4817708432674408
 ============================
 epoch = 3
-time = 0.0000 MIN 27.6140 SEC, total time = 2.0000 Min 10.3880 SEC
-training loss : 0.00963368198433936  train acc = 0.5665700483091788
-val loss : 1.2913775245348613  val acc = 0.5674843192100525
+time = 0.0000 MIN 49.1429 SEC, total time = 4.0000 Min 18.6845 SEC
+training loss : 0.005202313938002656  train acc = 0.5301932367149759
+val loss : 1.3821035226186116  val acc = 0.5300995111465454
 ============================
 epoch = 4
-time = 0.0000 MIN 27.5957 SEC, total time = 2.0000 Min 38.1780 SEC
-training loss : 0.008743319272419104  train acc = 0.6143478260869565
-val loss : 1.304049465391371  val acc = 0.5674422979354858
+time = 0.0000 MIN 54.8059 SEC, total time = 5.0000 Min 14.0773 SEC
+training loss : 0.004723056088323178  train acc = 0.5758454106280193
+val loss : 1.4293410778045654  val acc = 0.5361345410346985
 ============================
 epoch = 5
-time = 0.0000 MIN 27.4927 SEC, total time = 3.0000 Min 5.6709 SEC
-training loss : 0.008115919183417794  train acc = 0.6433333333333333
-val loss : 1.267483611901601  val acc = 0.5935539603233337
+time = 0.0000 MIN 56.5717 SEC, total time = 6.0000 Min 11.0902 SEC
+training loss : 0.004314758072152806  train acc = 0.616183574879227
+val loss : 1.3496634562810261  val acc = 0.5630856156349182
 ============================
 epoch = 6
-time = 0.0000 MIN 27.6041 SEC, total time = 3.0000 Min 33.4676 SEC
-training loss : 0.00763359777017492  train acc = 0.6584541062801932
-val loss : 1.0977585315704346  val acc = 0.6291862726211548
+time = 0.0000 MIN 48.8553 SEC, total time = 7.0000 Min 0.4744 SEC
+training loss : 0.003982641898491532  train acc = 0.6445410628019324
+val loss : 1.1704223950703938  val acc = 0.6213693022727966
 ============================
 epoch = 7
-time = 0.0000 MIN 27.6067 SEC, total time = 4.0000 Min 1.2664 SEC
-training loss : 0.007235277600334463  train acc = 0.6769565217391305
-val loss : 1.0494272708892822  val acc = 0.6383568644523621
+time = 0.0000 MIN 55.7672 SEC, total time = 7.0000 Min 56.6647 SEC
+training loss : 0.00383633053533121  train acc = 0.66
+val loss : 1.275627440876431  val acc = 0.6039875149726868
 ============================
 epoch = 8
-time = 0.0000 MIN 27.6591 SEC, total time = 4.0000 Min 29.1239 SEC
-training loss : 0.006716040894029221  train acc = 0.7027053140096619
-val loss : 1.193687167432573  val acc = 0.6005684733390808
+time = 1.0000 MIN 1.1367 SEC, total time = 8.0000 Min 57.8031 SEC
+training loss : 0.0035107155784892576  train acc = 0.6881159420289855
+val loss : 1.0004889302783542  val acc = 0.6543623208999634
 ============================
 epoch = 9
-time = 0.0000 MIN 27.6536 SEC, total time = 4.0000 Min 56.7778 SEC
-training loss : 0.006525205687624245  train acc = 0.7099516908212561
-val loss : 1.1093942026297252  val acc = 0.6410030126571655
+time = 0.0000 MIN 49.2336 SEC, total time = 9.0000 Min 47.4968 SEC
+training loss : 0.003352074343801121  train acc = 0.7059903381642512
+val loss : 1.1648291084501479  val acc = 0.6187513470649719
 ============================
 epoch = 10
-time = 0.0000 MIN 56.4508 SEC, total time = 5.0000 Min 53.4205 SEC
-training loss : 0.004726400100180096  train acc = 0.7904586375558234
-val loss : 1.0173879563808441  val acc = 0.6569640636444092
+time = 1.0000 MIN 56.8936 SEC, total time = 11.0000 Min 44.3954 SEC
+training loss : 0.00253445867782053  train acc = 0.7688210738448251
+val loss : 1.0709296994739108  val acc = 0.6539834141731262
 ============================
 epoch = 11
-time = 0.0000 MIN 37.2946 SEC, total time = 6.0000 Min 30.9031 SEC
-training loss : 0.004536992348659264  train acc = 0.795987807471468
-val loss : 1.061927275525199  val acc = 0.6413390636444092
+time = 1.0000 MIN 8.8636 SEC, total time = 12.0000 Min 53.2638 SEC
+training loss : 0.0023615646571654527  train acc = 0.7846192601122787
+val loss : 1.1639715035756428  val acc = 0.6427193880081177
 ============================
 epoch = 12
-time = 0.0000 MIN 37.1066 SEC, total time = 7.0000 Min 8.0101 SEC
-training loss : 0.004417668130984759  train acc = 0.8005600056709435
-val loss : 0.898834851053026  val acc = 0.6926663517951965
+time = 1.0000 MIN 11.5861 SEC, total time = 14.0000 Min 4.8553 SEC
+training loss : 0.002252573071537523  train acc = 0.7940837771700014
+val loss : 0.988649845123291  val acc = 0.6626777648925781
 ============================
 epoch = 13
-time = 0.0000 MIN 37.2107 SEC, total time = 7.0000 Min 45.4094 SEC
-training loss : 0.004198669944680235  train acc = 0.8116892322960233
-val loss : 0.8792323172092438  val acc = 0.7005628347396851
+time = 1.0000 MIN 8.2577 SEC, total time = 15.0000 Min 13.5171 SEC
+training loss : 0.0021592010141311315  train acc = 0.8026846120627609
+val loss : 0.991899675793118  val acc = 0.6830633282661438
 ============================
 epoch = 14
-time = 0.0000 MIN 37.1676 SEC, total time = 8.0000 Min 22.7657 SEC
-training loss : 0.003998010683052932  train acc = 0.8178563833557808
-val loss : 0.9478445251782736  val acc = 0.683005690574646
+time = 1.0000 MIN 19.4053 SEC, total time = 16.0000 Min 33.1612 SEC
+training loss : 0.0020649452194114615  train acc = 0.8122211026342306
+val loss : 1.2019961145189073  val acc = 0.6500978469848633
 ============================
 epoch = 15
-time = 0.0000 MIN 37.3097 SEC, total time = 9.0000 Min 0.0757 SEC
-training loss : 0.003926027609766725  train acc = 0.8239172042248529
-val loss : 0.9058619141578674  val acc = 0.69881272315979
+time = 1.0000 MIN 12.1011 SEC, total time = 17.0000 Min 45.2641 SEC
+training loss : 0.0019922760711121906  train acc = 0.8171512883258961
+val loss : 0.9451395273208618  val acc = 0.6860877275466919
 ============================
 epoch = 16
-time = 0.0000 MIN 37.2638 SEC, total time = 9.0000 Min 37.3398 SEC
-training loss : 0.003787425075798747  train acc = 0.8295527043311831
-val loss : 0.9167681667539809  val acc = 0.69181227684021
+time = 1.0000 MIN 9.8897 SEC, total time = 18.0000 Min 55.5761 SEC
+training loss : 0.0019303040518097625  train acc = 0.8217575932057003
+val loss : 0.9588371515274048  val acc = 0.6818025708198547
 ============================
 epoch = 17
-time = 0.0000 MIN 37.2501 SEC, total time = 10.0000 Min 14.5902 SEC
-training loss : 0.003636177899379991  train acc = 0.8347274402778763
-val loss : 0.8658744858370887  val acc = 0.7117775082588196
+time = 1.0000 MIN 17.9323 SEC, total time = 20.0000 Min 13.5128 SEC
+training loss : 0.0018828363459848475  train acc = 0.825860083489276
+val loss : 0.9962495168050131  val acc = 0.6948027014732361
 ============================
 epoch = 18
-time = 0.0000 MIN 37.2682 SEC, total time = 10.0000 Min 52.0576 SEC
-training loss : 0.003545721145569243  train acc = 0.8387325441270291
-val loss : 0.857418931192822  val acc = 0.7092293500900269
+time = 1.0000 MIN 10.0030 SEC, total time = 21.0000 Min 23.7430 SEC
+training loss : 0.0018273603974940605  train acc = 0.8310061897221822
+val loss : 0.9933197167184618  val acc = 0.6982680559158325
 ============================
 epoch = 19
-time = 0.0000 MIN 37.2575 SEC, total time = 11.0000 Min 29.3155 SEC
-training loss : 0.00343886591156597  train acc = 0.8444034876302545
-val loss : 0.9031254119343228  val acc = 0.7060791850090027
+time = 1.0000 MIN 18.1663 SEC, total time = 22.0000 Min 42.1693 SEC
+training loss : 0.0017641724706794334  train acc = 0.8377717000143947
+val loss : 0.9653912517759535  val acc = 0.7008997797966003
 ============================
 epoch = 20
-time = 1.0000 MIN 4.1544 SEC, total time = 12.0000 Min 33.4702 SEC
-training loss : 0.0028317677373311486  train acc = 0.8710220185083113
-val loss : 0.8643925951586829  val acc = 0.7083333134651184
+time = 2.0000 MIN 7.7387 SEC, total time = 24.0000 Min 50.2702 SEC
+training loss : 0.001508310387817058  train acc = 0.8658637627981298
+val loss : 1.076471898290846  val acc = 0.6787436604499817
 ============================
 epoch = 21
-time = 0.0000 MIN 45.2265 SEC, total time = 13.0000 Min 18.6970 SEC
-training loss : 0.0027579587719251016  train acc = 0.8744161759159873
-val loss : 0.9484274983406067  val acc = 0.70271897315979
+time = 1.0000 MIN 30.4273 SEC, total time = 26.0000 Min 20.6978 SEC
+training loss : 0.001468683109538417  train acc = 0.8701840563413624
+val loss : 0.968040406703949  val acc = 0.697448194026947
 ============================
 epoch = 22
-time = 0.0000 MIN 45.2271 SEC, total time = 14.0000 Min 3.9244 SEC
-training loss : 0.0026755189857416233  train acc = 0.8788546894491022
-val loss : 0.9333000381787618  val acc = 0.7001147866249084
+time = 1.0000 MIN 29.1582 SEC, total time = 27.0000 Min 49.8573 SEC
+training loss : 0.0014204905067610799  train acc = 0.8738237556962775
+val loss : 0.9110435512330797  val acc = 0.7056671977043152
 ============================
 epoch = 23
-time = 0.0000 MIN 45.2969 SEC, total time = 14.0000 Min 49.2216 SEC
-training loss : 0.0025607191037233953  train acc = 0.8825389457805112
-val loss : 0.8566344843970405  val acc = 0.7204440832138062
+time = 1.0000 MIN 28.2598 SEC, total time = 29.0000 Min 18.5769 SEC
+training loss : 0.0013725897214035526  train acc = 0.8761910398295556
+val loss : 0.9606522917747498  val acc = 0.7004519701004028
 ============================
 epoch = 24
-time = 0.0000 MIN 45.3854 SEC, total time = 15.0000 Min 34.8049 SEC
-training loss : 0.0025191678440549046  train acc = 0.8854979548025876
-val loss : 0.9089560972319709  val acc = 0.7034890651702881
+time = 1.0000 MIN 30.5774 SEC, total time = 30.0000 Min 49.1553 SEC
+training loss : 0.0013342076226748778  train acc = 0.8814286559744333
+val loss : 0.8692347076204088  val acc = 0.7209201455116272
 ============================
 epoch = 25
-time = 0.0000 MIN 45.3323 SEC, total time = 16.0000 Min 20.1374 SEC
-training loss : 0.0024261596551545554  train acc = 0.8890661715645035
-val loss : 1.0529530809985266  val acc = 0.6969226002693176
+time = 1.0000 MIN 24.7992 SEC, total time = 32.0000 Min 14.1372 SEC
+training loss : 0.001307182789603768  train acc = 0.8822572054210807
+val loss : 0.997572210099962  val acc = 0.7070037126541138
 ============================
 epoch = 26
-time = 0.0000 MIN 45.5078 SEC, total time = 17.0000 Min 5.6456 SEC
-training loss : 0.002386826541897163  train acc = 0.8919381509094602
-val loss : 0.8739088475704193  val acc = 0.7295166850090027
+time = 1.0000 MIN 32.1631 SEC, total time = 33.0000 Min 46.3069 SEC
+training loss : 0.001268203983456734  train acc = 0.8859560868793277
+val loss : 0.9746248192257352  val acc = 0.696580171585083
 ============================
 epoch = 27
-time = 0.0000 MIN 45.3520 SEC, total time = 17.0000 Min 51.1958 SEC
-training loss : 0.0023095463055798813  train acc = 0.8947231005772969
-val loss : 0.975186374452379  val acc = 0.7213121652603149
+time = 1.0000 MIN 26.8563 SEC, total time = 35.0000 Min 13.1681 SEC
+training loss : 0.0012584765650446178  train acc = 0.886784636325975
+val loss : 0.9190263549486796  val acc = 0.716090738773346
 ============================
 epoch = 28
-time = 0.0000 MIN 45.2691 SEC, total time = 18.0000 Min 36.4652 SEC
-training loss : 0.002255574090511721  train acc = 0.8973339908908938
-val loss : 0.9487078156736162  val acc = 0.7187779545783997
+time = 1.0000 MIN 26.6783 SEC, total time = 36.0000 Min 39.8528 SEC
+training loss : 0.0012082691166205766  train acc = 0.8916079777475292
+val loss : 1.0535845822758145  val acc = 0.7039379477500916
 ============================
 epoch = 29
-time = 0.0000 MIN 45.1768 SEC, total time = 19.0000 Min 21.6423 SEC
-training loss : 0.002156802804139938  train acc = 0.902004583562995
-val loss : 0.9936584764056735  val acc = 0.7205421328544617
+time = 1.0000 MIN 26.9491 SEC, total time = 38.0000 Min 6.8023 SEC
+training loss : 0.0011696268776757424  train acc = 0.8957211339290998
+val loss : 0.9617267714606391  val acc = 0.7091256380081177
 ============================
 epoch = 30
-time = 1.0000 MIN 10.0352 SEC, total time = 20.0000 Min 31.6780 SEC
-training loss : 0.0021118335910430296  train acc = 0.9032017103263529
-val loss : 0.9462394581900703  val acc = 0.7370771765708923
+time = 2.0000 MIN 17.0689 SEC, total time = 40.0000 Min 23.8785 SEC
+training loss : 0.0011310617214032232  train acc = 0.8922438998458349
+val loss : 1.08800874153773  val acc = 0.6904830932617188
 ============================
 epoch = 31
-time = 0.0000 MIN 50.6591 SEC, total time = 21.0000 Min 22.5346 SEC
-training loss : 0.0020322118531090703  train acc = 0.9075032841356928
-val loss : 0.8940862814585367  val acc = 0.7361810803413391
+time = 1.0000 MIN 34.8555 SEC, total time = 41.0000 Min 58.7399 SEC
+training loss : 0.0010842705677903052  train acc = 0.8963372494816862
+val loss : 0.9814853072166443  val acc = 0.7222084403038025
 ============================
 epoch = 32
-time = 0.0000 MIN 50.8039 SEC, total time = 22.0000 Min 13.3388 SEC
-training loss : 0.0019653460300048864  train acc = 0.9108002987919532
-val loss : 1.0269535448816087  val acc = 0.725274384021759
+time = 1.0000 MIN 37.4853 SEC, total time = 43.0000 Min 36.7035 SEC
+training loss : 0.001083341891397656  train acc = 0.8968156929456169
+val loss : 0.9464231265915765  val acc = 0.7204447984695435
 ============================
 epoch = 33
-time = 0.0000 MIN 50.8261 SEC, total time = 23.0000 Min 4.1651 SEC
-training loss : 0.0018982655692284145  train acc = 0.9130927542951344
-val loss : 1.02494082848231  val acc = 0.7231602668762207
+time = 1.0000 MIN 37.4214 SEC, total time = 45.0000 Min 14.1286 SEC
+training loss : 0.0010172626350486332  train acc = 0.902105151241295
+val loss : 0.9311201903555129  val acc = 0.7283055186271667
 ============================
 epoch = 34
-time = 0.0000 MIN 50.8851 SEC, total time = 23.0000 Min 55.0505 SEC
-training loss : 0.0018490668860914054  train acc = 0.9156170311413337
-val loss : 0.9042515622244941  val acc = 0.732624888420105
+time = 1.0000 MIN 46.6624 SEC, total time = 47.0000 Min 0.9991 SEC
+training loss : 0.0009952874270094353  train acc = 0.9025304343203445
+val loss : 0.9901149405373467  val acc = 0.7191358208656311
 ============================
 epoch = 35
-time = 0.0000 MIN 50.8840 SEC, total time = 24.0000 Min 45.9349 SEC
-training loss : 0.0017581841272760377  train acc = 0.9199701208046777
-val loss : 0.9381474852561951  val acc = 0.7448757290840149
+time = 1.0000 MIN 40.9221 SEC, total time = 48.0000 Min 41.9255 SEC
+training loss : 0.0009732625490930509  train acc = 0.9055339960661315
+val loss : 0.9282654192712572  val acc = 0.726934552192688
 ============================
 epoch = 36
-time = 0.0000 MIN 50.8130 SEC, total time = 25.0000 Min 36.9437 SEC
-training loss : 0.001690689125161259  train acc = 0.922391365942869
-val loss : 0.8960578474733565  val acc = 0.7478858828544617
+time = 1.0000 MIN 41.9253 SEC, total time = 50.0000 Min 23.8555 SEC
+training loss : 0.0009528298979962464  train acc = 0.908245175695072
+val loss : 0.9547962480121188  val acc = 0.7174410223960876
 ============================
 epoch = 37
-time = 0.0000 MIN 50.7194 SEC, total time = 26.0000 Min 27.9542 SEC
-training loss : 0.0016654860617400684  train acc = 0.9237050202199727
-val loss : 0.9138780865404341  val acc = 0.7457437515258789
+time = 1.0000 MIN 42.3036 SEC, total time = 52.0000 Min 6.1594 SEC
+training loss : 0.0009170084915265823  train acc = 0.9108234543618096
+val loss : 0.9853383236461215  val acc = 0.7139068245887756
 ============================
 epoch = 38
-time = 0.0000 MIN 50.7591 SEC, total time = 27.0000 Min 18.7137 SEC
-training loss : 0.0015861339527623558  train acc = 0.9282384153723309
-val loss : 0.9176743394798703  val acc = 0.7474938631057739
+time = 1.0000 MIN 30.2320 SEC, total time = 53.0000 Min 36.3957 SEC
+training loss : 0.0008988642257991624  train acc = 0.9125777470628887
+val loss : 1.0222853819529216  val acc = 0.7165178656578064
 ============================
 epoch = 39
-time = 0.0000 MIN 50.8684 SEC, total time = 28.0000 Min 9.5824 SEC
-training loss : 0.0015650001656704216  train acc = 0.9286505422043634
-val loss : 0.9670535756482018  val acc = 0.7435876131057739
+time = 1.0000 MIN 40.2772 SEC, total time = 55.0000 Min 16.6770 SEC
+training loss : 0.0008996237390387743  train acc = 0.9144117803412897
+val loss : 1.0323207179705303  val acc = 0.7325838208198547
 ============================
 epoch = 40
-time = 1.0000 MIN 13.1445 SEC, total time = 29.0000 Min 22.7272 SEC
-training loss : 0.0016714078825028169  train acc = 0.9239825335938819
-val loss : 0.9663940403196547  val acc = 0.7417954802513123
+time = 2.0000 MIN 20.6268 SEC, total time = 57.0000 Min 37.7485 SEC
+training loss : 0.0009592444506384812  train acc = 0.907543366267639
+val loss : 1.0423555374145508  val acc = 0.7248401641845703
 ============================
 epoch = 41
-time = 0.0000 MIN 54.1393 SEC, total time = 30.0000 Min 16.8668 SEC
-training loss : 0.00155186332671111  train acc = 0.9285421340860293
-val loss : 1.0155134631527796  val acc = 0.7366011738777161
+time = 1.0000 MIN 7.2749 SEC, total time = 58.0000 Min 45.0253 SEC
+training loss : 0.0009016395987321779  train acc = 0.9139394241059207
+val loss : 0.9606189860237969  val acc = 0.7352774739265442
 ============================
 epoch = 42
-time = 0.0000 MIN 53.9279 SEC, total time = 31.0000 Min 10.7950 SEC
-training loss : 0.0014726114740298598  train acc = 0.931967865672722
-val loss : 0.964125888215171  val acc = 0.751862108707428
+time = 1.0000 MIN 22.7212 SEC, total time = 60.0000 Min 8.0265 SEC
+training loss : 0.0008711707682201444  train acc = 0.9159055274881163
+val loss : 1.0369326803419325  val acc = 0.7269758582115173
 ============================
 epoch = 43
-time = 0.0000 MIN 53.9884 SEC, total time = 32.0000 Min 4.9753 SEC
-training loss : 0.001439673546730878  train acc = 0.9337531060770549
-val loss : 0.9417767292923398  val acc = 0.7457017302513123
+time = 1.0000 MIN 42.6177 SEC, total time = 61.0000 Min 50.6492 SEC
+training loss : 0.0008215717662591522  train acc = 0.9209327791742365
+val loss : 1.3846155537499323  val acc = 0.682174563407898
 ============================
 epoch = 44
-time = 0.0000 MIN 54.1113 SEC, total time = 32.0000 Min 59.0869 SEC
-training loss : 0.001362322127110725  train acc = 0.9364792164242117
-val loss : 0.954560700390074  val acc = 0.7492019534111023
+time = 1.0000 MIN 48.5742 SEC, total time = 63.0000 Min 39.2236 SEC
+training loss : 0.000836344392931404  train acc = 0.9201363828675244
+val loss : 0.9424491392241584  val acc = 0.7408922910690308
 ============================
 epoch = 45
-time = 0.0000 MIN 53.9698 SEC, total time = 33.0000 Min 53.0570 SEC
-training loss : 0.0013051225418308377  train acc = 0.9400738221032062
-val loss : 0.9206647276878357  val acc = 0.7600806355476379
+time = 1.0000 MIN 45.2795 SEC, total time = 65.0000 Min 24.9732 SEC
+training loss : 0.0007671075574194245  train acc = 0.9252631840919838
+val loss : 1.0248443616761103  val acc = 0.7365726828575134
 ============================
 epoch = 46
-time = 0.0000 MIN 54.1860 SEC, total time = 34.0000 Min 47.4350 SEC
-training loss : 0.0012568276405998807  train acc = 0.942124436081156
-val loss : 0.9185685614744822  val acc = 0.7639588713645935
+time = 1.0000 MIN 45.0702 SEC, total time = 67.0000 Min 10.0455 SEC
+training loss : 0.0007957088354973038  train acc = 0.9232721933252035
+val loss : 1.0648026996188693  val acc = 0.7291460037231445
 ============================
 epoch = 47
-time = 0.0000 MIN 53.8953 SEC, total time = 35.0000 Min 41.5267 SEC
-training loss : 0.001212645264566254  train acc = 0.9430411811536513
-val loss : 1.0113338894314237  val acc = 0.7436155676841736
+time = 1.0000 MIN 42.1158 SEC, total time = 68.0000 Min 52.1636 SEC
+training loss : 0.0007745015734220666  train acc = 0.9251138597844752
+val loss : 1.0553580522537231  val acc = 0.7365795969963074
 ============================
 epoch = 48
-time = 0.0000 MIN 54.0296 SEC, total time = 36.0000 Min 35.5567 SEC
-training loss : 0.00116155168622116  train acc = 0.9455019179271912
-val loss : 0.9558416306972504  val acc = 0.7522401213645935
+time = 1.0000 MIN 47.1107 SEC, total time = 70.0000 Min 39.2797 SEC
+training loss : 0.0007260599219289641  train acc = 0.9301411114705955
+val loss : 1.0637343857023451  val acc = 0.7217124104499817
 ============================
 epoch = 49
-time = 0.0000 MIN 54.0104 SEC, total time = 37.0000 Min 29.5674 SEC
-training loss : 0.0011046385558675315  train acc = 0.9499408940676944
-val loss : 0.9452905158201853  val acc = 0.7626848220825195
+time = 1.0000 MIN 41.2777 SEC, total time = 72.0000 Min 20.5582 SEC
+training loss : 0.0007173374070128166  train acc = 0.93121126900774
+val loss : 1.0550872219933405  val acc = 0.7392044067382812
 ============================
 epoch = 50
-time = 1.0000 MIN 15.0082 SEC, total time = 38.0000 Min 44.5759 SEC
-training loss : 0.0012026299032426185  train acc = 0.9467619159152125
-val loss : 0.9744524359703064  val acc = 0.7457017302513123
+time = 2.0000 MIN 31.7256 SEC, total time = 74.0000 Min 52.2878 SEC
+training loss : 0.0007855324276309041  train acc = 0.9276607134167113
+val loss : 1.0960403614574008  val acc = 0.7226493954658508
 ============================
 epoch = 51
-time = 0.0000 MIN 55.5147 SEC, total time = 39.0000 Min 40.0908 SEC
-training loss : 0.0011452086294286494  train acc = 0.9485654057852207
-val loss : 1.124095833963818  val acc = 0.7426775097846985
+time = 1.0000 MIN 49.4391 SEC, total time = 76.0000 Min 41.7299 SEC
+training loss : 0.0007992909507940816  train acc = 0.925422161662368
+val loss : 1.009260031912062  val acc = 0.7405133843421936
 ============================
 epoch = 52
-time = 0.0000 MIN 55.7352 SEC, total time = 40.0000 Min 35.8263 SEC
-training loss : 0.0010459779424823856  train acc = 0.9529218878088769
-val loss : 1.0584155718485515  val acc = 0.7513020634651184
+time = 1.0000 MIN 48.6735 SEC, total time = 78.0000 Min 30.4047 SEC
+training loss : 0.0007174701799142157  train acc = 0.9337437344882963
+val loss : 1.0029169453514948  val acc = 0.739156186580658
 ============================
 epoch = 53
-time = 0.0000 MIN 55.7867 SEC, total time = 41.0000 Min 31.6133 SEC
-training loss : 0.0009592754470337358  train acc = 0.956833352851622
-val loss : 1.0314172175195482  val acc = 0.7574484944343567
+time = 1.0000 MIN 44.2594 SEC, total time = 80.0000 Min 14.6659 SEC
+training loss : 0.0007115125003853148  train acc = 0.9334274173925738
+val loss : 1.1707277496655781  val acc = 0.7130456566810608
 ============================
 epoch = 54
-time = 0.0000 MIN 55.8317 SEC, total time = 42.0000 Min 27.4454 SEC
-training loss : 0.0008915988792753538  train acc = 0.960206113128001
-val loss : 0.9844569398297204  val acc = 0.7574904561042786
+time = 1.0000 MIN 54.8236 SEC, total time = 82.0000 Min 9.4941 SEC
+training loss : 0.0006990387250433943  train acc = 0.9348873424497542
+val loss : 1.0143433743053012  val acc = 0.7426215410232544
 ============================
 epoch = 55
-time = 0.0000 MIN 55.8787 SEC, total time = 43.0000 Min 23.3244 SEC
-training loss : 0.0008369155584132453  train acc = 0.9620096029980091
-val loss : 1.0961307187875111  val acc = 0.7604726552963257
+time = 1.0000 MIN 52.4834 SEC, total time = 84.0000 Min 2.1867 SEC
+training loss : 0.0006677368022651938  train acc = 0.9368582412769478
+val loss : 1.0860066082742479  val acc = 0.7300691604614258
 ============================
 epoch = 56
-time = 0.0000 MIN 55.9255 SEC, total time = 44.0000 Min 19.2502 SEC
-training loss : 0.0007640177307890176  train acc = 0.965757114416208
-val loss : 1.0542884866396587  val acc = 0.757924497127533
+time = 1.0000 MIN 53.3496 SEC, total time = 85.0000 Min 55.5366 SEC
+training loss : 0.0006480670678968865  train acc = 0.9394617742955862
+val loss : 1.0297624932395086  val acc = 0.7369654178619385
 ============================
 epoch = 57
-time = 0.0000 MIN 55.8465 SEC, total time = 45.0000 Min 15.0970 SEC
-training loss : 0.0007197497552822452  train acc = 0.9678885115353086
-val loss : 1.1265107194582622  val acc = 0.7617327570915222
+time = 1.0000 MIN 52.8149 SEC, total time = 87.0000 Min 48.3589 SEC
+training loss : 0.0006280389948290707  train acc = 0.9420409752299382
+val loss : 0.911889738506741  val acc = 0.755304753780365
 ============================
 epoch = 58
-time = 0.0000 MIN 55.9191 SEC, total time = 46.0000 Min 11.0164 SEC
-training loss : 0.0006666471257880862  train acc = 0.9698793769762267
-val loss : 1.1219887766573164  val acc = 0.7574625015258789
+time = 1.0000 MIN 52.0930 SEC, total time = 89.0000 Min 40.7733 SEC
+training loss : 0.0006120026983961385  train acc = 0.9432819115285416
+val loss : 1.1594005359543695  val acc = 0.7369929552078247
 ============================
 epoch = 59
-time = 0.0000 MIN 55.8302 SEC, total time = 47.0000 Min 6.8469 SEC
-training loss : 0.0006126333474816253  train acc = 0.9727368544326034
-val loss : 1.150341616736518  val acc = 0.7587226033210754
+time = 1.0000 MIN 47.6801 SEC, total time = 91.0000 Min 28.4575 SEC
+training loss : 0.0006048443398021296  train acc = 0.9439632098885591
+val loss : 1.041740616162618  val acc = 0.7326182126998901
 ============================
 epoch = 60
-time = 1.0000 MIN 16.7581 SEC, total time = 48.0000 Min 23.6054 SEC
-training loss : 0.0007237268395726823  train acc = 0.9671598372764255
-val loss : 1.108323848909802  val acc = 0.7647849321365356
+time = 2.0000 MIN 44.4197 SEC, total time = 94.0000 Min 12.8806 SEC
+training loss : 0.000678190312358738  train acc = 0.9391213693449062
+val loss : 0.9928635954856873  val acc = 0.7326595783233643
 ============================
 epoch = 61
-time = 0.0000 MIN 57.3121 SEC, total time = 49.0000 Min 21.1133 SEC
-training loss : 0.0006509833321053533  train acc = 0.9705233971955183
-val loss : 1.154800362057156  val acc = 0.7601086497306824
+time = 1.0000 MIN 50.0280 SEC, total time = 96.0000 Min 2.9090 SEC
+training loss : 0.000612310636905118  train acc = 0.9464190466954371
+val loss : 1.222077230612437  val acc = 0.7244612574577332
 ============================
 epoch = 62
-time = 0.0000 MIN 57.4436 SEC, total time = 50.0000 Min 18.5573 SEC
-training loss : 0.00058130654588615  train acc = 0.9735915092838799
-val loss : 1.1566866172684565  val acc = 0.7591285705566406
+time = 1.0000 MIN 51.9287 SEC, total time = 97.0000 Min 54.8381 SEC
+training loss : 0.0005863778570772854  train acc = 0.9481404257382534
+val loss : 1.167664349079132  val acc = 0.7274443507194519
 ============================
 epoch = 63
-time = 0.0000 MIN 57.3256 SEC, total time = 51.0000 Min 15.8832 SEC
-training loss : 0.0005124011618517393  train acc = 0.9763187200290903
-val loss : 1.2122282253371344  val acc = 0.7653449773788452
+time = 1.0000 MIN 57.6942 SEC, total time = 99.0000 Min 52.5333 SEC
+training loss : 0.0005529834854328534  train acc = 0.9507831062406051
+val loss : 1.181428657637702  val acc = 0.7165592312812805
 ============================
 epoch = 64
-time = 0.0000 MIN 57.3826 SEC, total time = 52.0000 Min 13.4529 SEC
-training loss : 0.0004451125716920812  train acc = 0.9793186518488216
-val loss : 1.1896449161900415  val acc = 0.7617467045783997
+time = 2.0000 MIN 8.7234 SEC, total time = 102.0000 Min 1.2616 SEC
+training loss : 0.000540040480553257  train acc = 0.952286282306163
+val loss : 1.0484301381640964  val acc = 0.7387359738349915
 ============================
 epoch = 65
-time = 0.0000 MIN 57.3048 SEC, total time = 53.0000 Min 10.7579 SEC
-training loss : 0.00037712672865565386  train acc = 0.982841299061385
-val loss : 1.2714762190977733  val acc = 0.7657090425491333
+time = 1.0000 MIN 52.1817 SEC, total time = 103.0000 Min 53.4441 SEC
+training loss : 0.0005270778946424961  train acc = 0.9523832614071668
+val loss : 1.0763755639394124  val acc = 0.7452394962310791
 ============================
 epoch = 66
-time = 0.0000 MIN 57.4054 SEC, total time = 54.0000 Min 8.3596 SEC
-training loss : 0.0003410380028808983  train acc = 0.9843639917274607
-val loss : 1.2737746271822188  val acc = 0.7647849321365356
+time = 1.0000 MIN 48.7010 SEC, total time = 105.0000 Min 42.1479 SEC
+training loss : 0.0004779674414100387  train acc = 0.9585414343209039
+val loss : 1.1308633155292935  val acc = 0.736145555973053
 ============================
 epoch = 67
-time = 0.0000 MIN 57.3838 SEC, total time = 55.0000 Min 5.7437 SEC
-training loss : 0.00030401889317222604  train acc = 0.9863412195177382
-val loss : 1.2632392015722063  val acc = 0.7661150097846985
+time = 1.0000 MIN 53.1557 SEC, total time = 107.0000 Min 35.3081 SEC
+training loss : 0.00046233515293222566  train acc = 0.958880861174417
+val loss : 1.233508951134152  val acc = 0.7413263320922852
 ============================
 epoch = 68
-time = 0.0000 MIN 57.2600 SEC, total time = 56.0000 Min 3.2003 SEC
-training loss : 0.000271415027373501  train acc = 0.9870457489602509
-val loss : 1.259755829970042  val acc = 0.7604866623878479
+time = 1.0000 MIN 49.1118 SEC, total time = 109.0000 Min 24.4221 SEC
+training loss : 0.00047639270314393746  train acc = 0.9578383358386268
+val loss : 1.1583370963732402  val acc = 0.7443507313728333
 ============================
 epoch = 69
-time = 0.0000 MIN 57.6390 SEC, total time = 57.0000 Min 0.8397 SEC
-training loss : 0.00021488371066775682  train acc = 0.9898865934865116
-val loss : 1.2974063555399578  val acc = 0.7696292996406555
+time = 1.0000 MIN 47.0071 SEC, total time = 111.0000 Min 11.4302 SEC
+training loss : 0.00047623611062133615  train acc = 0.9578625806138777
+val loss : 1.2297660112380981  val acc = 0.7418085932731628
 ============================
 epoch = 70
-time = 1.0000 MIN 17.9722 SEC, total time = 58.0000 Min 19.0136 SEC
-training loss : 0.0003040018061268083  train acc = 0.9872448979591837
-val loss : 1.3099659383296967  val acc = 0.7639729380607605
+time = 2.0000 MIN 30.2975 SEC, total time = 113.0000 Min 41.7319 SEC
+training loss : 0.0005415870106700176  train acc = 0.9507156454910809
+val loss : 1.1339108480347528  val acc = 0.7378816604614258
 ============================
 epoch = 71
-time = 0.0000 MIN 58.8004 SEC, total time = 59.0000 Min 17.8143 SEC
-training loss : 0.00024181465669340901  train acc = 0.9902173913043478
-val loss : 1.3294589420159657  val acc = 0.7700772881507874
+time = 1.0000 MIN 55.5713 SEC, total time = 115.0000 Min 37.3061 SEC
+training loss : 0.0005225926539940448  train acc = 0.9522667982796306
+val loss : 1.0944723354445562  val acc = 0.7396246790885925
 ============================
 epoch = 72
-time = 0.0000 MIN 58.9824 SEC, total time = 60.0000 Min 16.9887 SEC
-training loss : 0.00021543709351329963  train acc = 0.9913708961845608
-val loss : 1.3186441030767229  val acc = 0.7665351033210754
+time = 1.0000 MIN 47.5211 SEC, total time = 117.0000 Min 24.8305 SEC
+training loss : 0.00046427352898728677  train acc = 0.9588474464734776
+val loss : 1.2268741925557454  val acc = 0.7422081828117371
 ============================
 epoch = 73
-time = 0.0000 MIN 59.2279 SEC, total time = 61.0000 Min 16.2170 SEC
-training loss : 0.00018137275518563566  train acc = 0.9924800354924579
-val loss : 1.3386840654744043  val acc = 0.7717854380607605
+time = 1.0000 MIN 45.3901 SEC, total time = 119.0000 Min 10.2265 SEC
+training loss : 0.00046715798057953185  train acc = 0.9577898422994665
+val loss : 1.2267242537604437  val acc = 0.7317846417427063
 ============================
 epoch = 74
-time = 0.0000 MIN 59.8382 SEC, total time = 62.0000 Min 16.2447 SEC
-training loss : 0.00014545436494652357  train acc = 0.9946317657497782
-val loss : 1.3843311071395874  val acc = 0.7643929123878479
+time = 1.0000 MIN 55.4659 SEC, total time = 121.0000 Min 5.6960 SEC
+training loss : 0.00042276449002287536  train acc = 0.9619967566805331
+val loss : 1.1768063637945387  val acc = 0.7413745522499084
 ============================
 epoch = 75
-time = 0.0000 MIN 59.9521 SEC, total time = 63.0000 Min 16.1972 SEC
-training loss : 0.0001296572113585656  train acc = 0.9948535936113576
-val loss : 1.3619905743334029  val acc = 0.7674451470375061
+time = 1.0000 MIN 56.7405 SEC, total time = 123.0000 Min 2.4376 SEC
+training loss : 0.00040136243722596214  train acc = 0.9633598909492586
+val loss : 1.2170981698566012  val acc = 0.7443645596504211
 ============================
 epoch = 76
-time = 0.0000 MIN 59.8693 SEC, total time = 64.0000 Min 16.0668 SEC
-training loss : 0.00010645839362394911  train acc = 0.9959849157054126
-val loss : 1.357856531937917  val acc = 0.7656670212745667
+time = 1.0000 MIN 52.4604 SEC, total time = 124.0000 Min 54.8984 SEC
+training loss : 0.0003809509372720427  train acc = 0.9669557451408963
+val loss : 1.2419977717929416  val acc = 0.7491870522499084
 ============================
 epoch = 77
-time = 1.0000 MIN 0.5784 SEC, total time = 65.0000 Min 16.6455 SEC
-training loss : 0.00010328385155662867  train acc = 0.9960736468500444
-val loss : 1.3749592800935109  val acc = 0.7709033489227295
+time = 1.0000 MIN 53.1005 SEC, total time = 126.0000 Min 48.0066 SEC
+training loss : 0.00036252902539617637  train acc = 0.9676138099602811
+val loss : 1.2416938543319702  val acc = 0.7443576455116272
 ============================
 epoch = 78
-time = 1.0000 MIN 0.7141 SEC, total time = 66.0000 Min 17.3600 SEC
-training loss : 8.857691297280753e-05  train acc = 0.9969165927240461
-val loss : 1.3853141334321764  val acc = 0.7722054123878479
+time = 1.0000 MIN 50.8147 SEC, total time = 128.0000 Min 38.8256 SEC
+training loss : 0.00037288933972423795  train acc = 0.9662741780065336
+val loss : 1.239047434594896  val acc = 0.7378472089767456
 ============================
 epoch = 79
-time = 1.0000 MIN 0.1124 SEC, total time = 67.0000 Min 17.6648 SEC
-training loss : 7.287873042850262e-05  train acc = 0.9978260869565218
-val loss : 1.3785177336798773  val acc = 0.7748236060142517
+time = 1.0000 MIN 51.6533 SEC, total time = 130.0000 Min 30.4801 SEC
+training loss : 0.0003488071741050647  train acc = 0.9691884650638087
+val loss : 1.2489660845862494  val acc = 0.7434964776039124
 ============================
 epoch = 80
-time = 1.0000 MIN 21.1404 SEC, total time = 68.0000 Min 38.9935 SEC
-training loss : 0.00010294762404717546  train acc = 0.9954039512949531
-val loss : 1.3897007140848372  val acc = 0.769643247127533
+time = 2.0000 MIN 32.9255 SEC, total time = 133.0000 Min 3.4105 SEC
+training loss : 0.0004309058628022762  train acc = 0.9575179559637348
+val loss : 1.2633158498340182  val acc = 0.7487117052078247
 ============================
 epoch = 81
-time = 1.0000 MIN 1.9034 SEC, total time = 69.0000 Min 40.8988 SEC
-training loss : 9.194776572911657e-05  train acc = 0.9955346446230586
-val loss : 1.3900013201766543  val acc = 0.7756636738777161
+time = 1.0000 MIN 54.9067 SEC, total time = 134.0000 Min 58.3176 SEC
+training loss : 0.0003901019454683135  train acc = 0.9611915695278465
+val loss : 1.1972594790988498  val acc = 0.7461282014846802
 ============================
 epoch = 82
-time = 1.0000 MIN 0.7145 SEC, total time = 70.0000 Min 41.8047 SEC
-training loss : 8.21864819252126e-05  train acc = 0.9958178135006208
-val loss : 1.3798646794425116  val acc = 0.7739695310592651
+time = 1.0000 MIN 48.8946 SEC, total time = 136.0000 Min 47.2359 SEC
+training loss : 0.00039148782635975904  train acc = 0.9598021900388555
+val loss : 1.1539172463946872  val acc = 0.7465622425079346
 ============================
 epoch = 83
-time = 1.0000 MIN 1.0170 SEC, total time = 71.0000 Min 42.8222 SEC
-training loss : 7.422209560459557e-05  train acc = 0.9960356357141301
-val loss : 1.3851238356696234  val acc = 0.7678791880607605
+time = 1.0000 MIN 49.4735 SEC, total time = 138.0000 Min 36.7144 SEC
+training loss : 0.0003395928779872893  train acc = 0.9650535735311433
+val loss : 1.2488441732194688  val acc = 0.7517843246459961
 ============================
 epoch = 84
-time = 1.0000 MIN 0.8809 SEC, total time = 72.0000 Min 43.7033 SEC
-training loss : 6.249081623362987e-05  train acc = 0.9966455379119563
-val loss : 1.3883184062110052  val acc = 0.7674591541290283
-============================
-epoch = 85
-time = 1.0000 MIN 1.0208 SEC, total time = 73.0000 Min 44.7245 SEC
-training loss : 5.848090853062116e-05  train acc = 0.9968633601254656
-val loss : 1.3744888703028362  val acc = 0.7730875015258789
-============================
-epoch = 86
-time = 1.0000 MIN 2.9007 SEC, total time = 74.0000 Min 47.6255 SEC
-training loss : 5.54691823832526e-05  train acc = 0.9967544490187109
-val loss : 1.36508576075236  val acc = 0.7722194790840149
-============================
-epoch = 87
-time = 1.0000 MIN 2.1318 SEC, total time = 75.0000 Min 49.7577 SEC
-training loss : 5.040052512269057e-05  train acc = 0.9971029645603259
-val loss : 1.3752071956793468  val acc = 0.7757056355476379
-============================
-epoch = 88
-time = 1.0000 MIN 1.1055 SEC, total time = 76.0000 Min 51.0445 SEC
-training loss : 4.901899771561647e-05  train acc = 0.9972336578884314
-val loss : 1.3872883783446417  val acc = 0.7704973220825195
-============================
-epoch = 89
-time = 1.0000 MIN 0.7590 SEC, total time = 77.0000 Min 51.8037 SEC
-training loss : 5.013855238739842e-05  train acc = 0.9972118756670806
-val loss : 1.385195619530148  val acc = 0.7691812515258789
-============================
-epoch = 90
-time = 1.0000 MIN 25.0397 SEC, total time = 79.0000 Min 16.8437 SEC
-training loss : 6.157327342842534e-05  train acc = 0.9982687729928587
-val loss : 1.3959057529767354  val acc = 0.7709313631057739
-============================
-epoch = 91
-time = 1.0000 MIN 9.5326 SEC, total time = 80.0000 Min 26.3791 SEC
-training loss : 5.305735619077239e-05  train acc = 0.9986150183942869
-val loss : 1.3875923289193048  val acc = 0.7713654041290283
-============================
-epoch = 92
-time = 1.0000 MIN 58.5029 SEC, total time = 82.0000 Min 24.8873 SEC
-training loss : 5.3391231632969015e-05  train acc = 0.9986582990694655
-val loss : 1.3864095442824893  val acc = 0.7687612175941467
-============================
-epoch = 93
-time = 1.0000 MIN 58.5400 SEC, total time = 84.0000 Min 23.4327 SEC
-training loss : 4.7987342413925596e-05  train acc = 0.9988097814325904
-val loss : 1.3953332867887285  val acc = 0.7722334265708923
-============================
-epoch = 94
-time = 1.0000 MIN 59.9019 SEC, total time = 86.0000 Min 23.3367 SEC
-training loss : 5.292639737184732e-05  train acc = 0.9985933780566977
-val loss : 1.3883499635590448  val acc = 0.7709173560142517
-============================
-epoch = 95
-time = 2.0000 MIN 2.4803 SEC, total time = 88.0000 Min 25.8239 SEC
-training loss : 4.793791837847794e-05  train acc = 0.9987665007574118
-val loss : 1.3914711773395538  val acc = 0.7713513970375061
-============================
-epoch = 96
-time = 2.0000 MIN 3.8326 SEC, total time = 90.0000 Min 29.6611 SEC
-training loss : 4.7850942089420084e-05  train acc = 0.99911274615884
-val loss : 1.3924266066816118  val acc = 0.7722334265708923
-============================
-epoch = 97
-time = 2.0000 MIN 0.2185 SEC, total time = 92.0000 Min 29.8801 SEC
-training loss : 4.7531171498392516e-05  train acc = 0.9988747024453581
-val loss : 1.3858264519108667  val acc = 0.7700493335723877
-============================
-epoch = 98
-time = 2.0000 MIN 8.4805 SEC, total time = 94.0000 Min 38.3647 SEC
-training loss : 5.2042461720742065e-05  train acc = 0.9988963427829474
-val loss : 1.3935629030068715  val acc = 0.7700632810592651
-============================
-epoch = 99
-time = 1.0000 MIN 59.2763 SEC, total time = 96.0000 Min 37.6443 SEC
-training loss : 4.714206368345997e-05  train acc = 0.9988747024453581
-val loss : 1.3864005870289273  val acc = 0.7704973220825195
-============================
-epoch = 100
-time = 2.0000 MIN 44.5612 SEC, total time = 99.0000 Min 22.2058 SEC
-training loss : 5.026558200907519e-05  train acc = 0.9977305148489172
-val loss : 1.3938627110587225  val acc = 0.769643247127533
-============================
-epoch = 101
-time = 2.0000 MIN 7.1967 SEC, total time = 101.0000 Min 29.4061 SEC
-training loss : 5.386623464973357e-05  train acc = 0.9973630743958847
-val loss : 1.3887669543425243  val acc = 0.7722334265708923
-============================
-epoch = 102
-time = 2.0000 MIN 3.7399 SEC, total time = 103.0000 Min 33.1495 SEC
-training loss : 5.280230975837196e-05  train acc = 0.9975792158388449
-val loss : 1.3970385392506917  val acc = 0.7704973220825195
-============================
-epoch = 103
-time = 2.0000 MIN 1.9656 SEC, total time = 105.0000 Min 35.1197 SEC
-training loss : 4.7067106278990927e-05  train acc = 0.9978385855703973
-val loss : 1.3927564786540136  val acc = 0.7704973220825195
-============================
-epoch = 104
-time = 1.0000 MIN 59.7771 SEC, total time = 107.0000 Min 34.8995 SEC
-training loss : 4.8728315081323444e-05  train acc = 0.9978385855703973
-val loss : 1.3937217957443662  val acc = 0.7717993855476379
-============================
-epoch = 105
-time = 2.0000 MIN 10.3776 SEC, total time = 109.0000 Min 45.2853 SEC
-training loss : 5.170794553772599e-05  train acc = 0.9974927592616608
-val loss : 1.392046633693907  val acc = 0.7704833149909973
-============================
-epoch = 106
-time = 2.0000 MIN 1.4880 SEC, total time = 111.0000 Min 46.7736 SEC
-training loss : 4.9122145440324696e-05  train acc = 0.9976656724160291
-val loss : 1.3956432077619765  val acc = 0.7696292996406555
-============================
-epoch = 107
-time = 2.0000 MIN 4.6594 SEC, total time = 113.0000 Min 51.4361 SEC
-training loss : 5.171227275884827e-05  train acc = 0.9974927592616608
-val loss : 1.38609403040674  val acc = 0.7717993855476379
-============================
-epoch = 108
-time = 2.0000 MIN 2.3510 SEC, total time = 115.0000 Min 53.7956 SEC
-training loss : 4.400544338712067e-05  train acc = 0.9978818138589893
-val loss : 1.386261800924937  val acc = 0.7713654041290283
-============================
-epoch = 109
-time = 2.0000 MIN 8.4095 SEC, total time = 118.0000 Min 2.2130 SEC
-training loss : 4.717117600957284e-05  train acc = 0.9977953572818052
-val loss : 1.3947441346115537  val acc = 0.7717993855476379
-============================
-epoch = 110
-time = 2.0000 MIN 44.1964 SEC, total time = 120.0000 Min 46.4098 SEC
-training loss : 4.983170911852258e-05  train acc = 0.9968249854208514
-val loss : 1.4001468817392986  val acc = 0.7713654041290283
-============================
-epoch = 111
-time = 2.0000 MIN 0.2820 SEC, total time = 122.0000 Min 46.6921 SEC
-training loss : 5.2088113411369976e-05  train acc = 0.9968681828981187
-val loss : 1.397726035780377  val acc = 0.7717854380607605
-============================
-epoch = 112
-time = 2.0000 MIN 0.1265 SEC, total time = 124.0000 Min 46.8213 SEC
-training loss : 4.944647308939286e-05  train acc = 0.9970625715458217
-val loss : 1.400588936275906  val acc = 0.7696152925491333
-============================
-epoch = 113
-time = 2.0000 MIN 5.8970 SEC, total time = 126.0000 Min 52.7212 SEC
-training loss : 5.254926019728365e-05  train acc = 0.9969113803753861
-val loss : 1.4054562946160634  val acc = 0.7687472105026245
-============================
-epoch = 114
-time = 2.0000 MIN 6.9949 SEC, total time = 128.0000 Min 59.7192 SEC
-training loss : 5.091690501449534e-05  train acc = 0.9969113803753861
-val loss : 1.3964660465717316  val acc = 0.7722194790840149
-============================
-epoch = 115
-time = 2.0000 MIN 1.2577 SEC, total time = 131.0000 Min 0.9772 SEC
-training loss : 4.763880784113259e-05  train acc = 0.9970409728071881
-val loss : 1.3927832179599338  val acc = 0.7709173560142517
-============================
-epoch = 116
-time = 2.0000 MIN 7.7532 SEC, total time = 133.0000 Min 8.7326 SEC
-training loss : 4.76989924233708e-05  train acc = 0.9971489665003563
-val loss : 1.4015590382946863  val acc = 0.7731154561042786
-============================
-epoch = 117
-time = 1.0000 MIN 59.8341 SEC, total time = 135.0000 Min 8.5703 SEC
-training loss : 4.60039590838399e-05  train acc = 0.9971489665003563
-val loss : 1.4117477536201477  val acc = 0.7739695310592651
-============================
-epoch = 118
-time = 2.0000 MIN 3.2019 SEC, total time = 137.0000 Min 11.8259 SEC
-training loss : 5.00279370427496e-05  train acc = 0.9969113803753861
-val loss : 1.4128115773200989  val acc = 0.7726534605026245
-============================
-epoch = 119
-time = 2.0000 MIN 4.6377 SEC, total time = 139.0000 Min 16.4709 SEC
-training loss : 5.022663703309717e-05  train acc = 0.9971273677617227
-val loss : 1.4201252195570204  val acc = 0.7718133926391602
-============================
-epoch = 120
-time = 2.0000 MIN 42.9890 SEC, total time = 141.0000 Min 59.4603 SEC
-training loss : 5.9314761235385154e-05  train acc = 0.9979077692938182
-val loss : 1.4422118994924757  val acc = 0.7718133926391602
-============================
-epoch = 121
-time = 2.0000 MIN 1.1603 SEC, total time = 144.0000 Min 0.6315 SEC
-training loss : 6.106930713739255e-05  train acc = 0.9979293386825417
-val loss : 1.428880939881007  val acc = 0.7709173560142517
-============================
-epoch = 122
-time = 2.0000 MIN 2.0465 SEC, total time = 146.0000 Min 2.6837 SEC
-training loss : 5.952049576215798e-05  train acc = 0.9980371856261594
-val loss : 1.4242154161135356  val acc = 0.7717993855476379
-============================
-epoch = 123
-time = 2.0000 MIN 5.2361 SEC, total time = 148.0000 Min 7.9234 SEC
-training loss : 5.911037082949243e-05  train acc = 0.9980587550148828
-val loss : 1.4349756439526875  val acc = 0.7718133926391602
-============================
-epoch = 124
-time = 2.0000 MIN 1.1815 SEC, total time = 150.0000 Min 9.1103 SEC
-training loss : 6.53734337783555e-05  train acc = 0.9974763815193477
-val loss : 1.4238155914677515  val acc = 0.7765737175941467
-============================
-epoch = 125
-time = 2.0000 MIN 5.5231 SEC, total time = 152.0000 Min 14.8361 SEC
-training loss : 7.367556227213525e-05  train acc = 0.9973469651870066
-val loss : 1.4326956735716925  val acc = 0.7752435803413391
-============================
-epoch = 126
-time = 2.0000 MIN 4.4106 SEC, total time = 154.0000 Min 19.2511 SEC
-training loss : 7.781678055545288e-05  train acc = 0.997325395798283
-val loss : 1.4346295528941684  val acc = 0.7782958149909973
-============================
-epoch = 127
-time = 2.0000 MIN 5.3702 SEC, total time = 156.0000 Min 24.9675 SEC
-training loss : 8.276775108265159e-05  train acc = 0.9966136059704068
-val loss : 1.456790116098192  val acc = 0.7796118855476379
-============================
-epoch = 128
-time = 2.0000 MIN 4.8866 SEC, total time = 158.0000 Min 30.4583 SEC
-training loss : 0.00011426938301277983  train acc = 0.9955351365342306
-val loss : 1.4486812551816304  val acc = 0.7752435803413391
-============================
-epoch = 129
-time = 2.0000 MIN 4.4915 SEC, total time = 160.0000 Min 34.9549 SEC
-training loss : 0.00013313318727708578  train acc = 0.9944566670980545
-val loss : 1.4701902270317078  val acc = 0.7717574238777161
-============================
-epoch = 130
-time = 2.0000 MIN 49.5462 SEC, total time = 163.0000 Min 24.5021 SEC
-training loss : 0.0002721200564864461  train acc = 0.9867905324931245
-val loss : 1.3928704195552402  val acc = 0.7634968757629395
-============================
-epoch = 131
-time = 2.0000 MIN 5.8249 SEC, total time = 165.0000 Min 30.3387 SEC
-training loss : 0.00027563202677340553  train acc = 0.986638948439767
-val loss : 1.414411226908366  val acc = 0.7644209265708923
-============================
-epoch = 132
-time = 2.0000 MIN 2.0239 SEC, total time = 167.0000 Min 32.3677 SEC
-training loss : 0.0002939443892282763  train acc = 0.9852963468243141
-val loss : 1.3872823317845662  val acc = 0.7687332034111023
-============================
-epoch = 133
-time = 2.0000 MIN 5.0963 SEC, total time = 169.0000 Min 37.4662 SEC
-training loss : 0.0003287829809227539  train acc = 0.9843218779098725
-val loss : 1.3638286391894023  val acc = 0.7600666880607605
-============================
-epoch = 134
-time = 2.0000 MIN 1.5792 SEC, total time = 171.0000 Min 39.0483 SEC
-training loss : 0.0003319874080314462  train acc = 0.9838021611555036
-val loss : 1.388655857907401  val acc = 0.7587505578994751
-============================
-epoch = 135
-time = 2.0000 MIN 6.5977 SEC, total time = 173.0000 Min 45.6496 SEC
-training loss : 0.00036092705719267983  train acc = 0.9828276922410619
-val loss : 1.4177316228548686  val acc = 0.7596606016159058
-============================
-epoch = 136
-time = 2.0000 MIN 2.3609 SEC, total time = 175.0000 Min 48.0199 SEC
-training loss : 0.00040018873053225475  train acc = 0.9806405508997597
-val loss : 1.37092720468839  val acc = 0.7640008926391602
-============================
-epoch = 137
-time = 2.0000 MIN 10.6495 SEC, total time = 177.0000 Min 58.6739 SEC
-training loss : 0.0003945660942179989  train acc = 0.9809004092769441
-val loss : 1.4199696547455258  val acc = 0.7626147866249084
-============================
-epoch = 138
-time = 2.0000 MIN 1.3969 SEC, total time = 180.0000 Min 0.0713 SEC
-training loss : 0.0004461983875206242  train acc = 0.9788648519889993
-val loss : 1.403623537884818  val acc = 0.7530242204666138
-============================
-epoch = 139
-time = 2.0000 MIN 2.6824 SEC, total time = 182.0000 Min 2.7547 SEC
-training loss : 0.0005029736744353389  train acc = 0.9751185603845904
-val loss : 1.288819584581587  val acc = 0.7599966526031494
-============================
-epoch = 140
-time = 2.0000 MIN 44.0954 SEC, total time = 184.0000 Min 46.8604 SEC
-training loss : 0.0006324037188497328  train acc = 0.9709828954170506
-val loss : 1.341571506526735  val acc = 0.7500840425491333
-============================
-epoch = 141
-time = 1.0000 MIN 58.9420 SEC, total time = 186.0000 Min 45.8188 SEC
-training loss : 0.0006433363064180074  train acc = 0.9698365961655167
-val loss : 1.365602648920483  val acc = 0.7496079802513123
-============================
-epoch = 142
-time = 2.0000 MIN 5.8182 SEC, total time = 188.0000 Min 51.6451 SEC
-training loss : 0.0006458688422179116  train acc = 0.9708929895934009
-val loss : 1.345166848765479  val acc = 0.7422295212745667
-============================
-epoch = 143
-time = 1.0000 MIN 56.5801 SEC, total time = 190.0000 Min 48.2255 SEC
-training loss : 0.0006159330295355165  train acc = 0.9717246184621608
-val loss : 1.2818773521317377  val acc = 0.7552503347396851
-============================
-epoch = 144
-time = 1.0000 MIN 58.7873 SEC, total time = 192.0000 Min 47.1186 SEC
-training loss : 0.0006625728423330543  train acc = 0.9693421141354431
-val loss : 1.3683797584639654  val acc = 0.7565104365348816
-============================
-epoch = 145
-time = 1.0000 MIN 56.5113 SEC, total time = 194.0000 Min 43.6331 SEC
-training loss : 0.0006543122528704106  train acc = 0.9694320199590929
-val loss : 1.3255805869897206  val acc = 0.7522401213645935
-============================
-epoch = 146
-time = 2.0000 MIN 3.9998 SEC, total time = 196.0000 Min 47.6386 SEC
-training loss : 0.0006730406502420555  train acc = 0.9691173495763188
-val loss : 1.2546408673127492  val acc = 0.7470038533210754
-============================
-epoch = 147
-time = 1.0000 MIN 56.8427 SEC, total time = 198.0000 Min 44.4847 SEC
-training loss : 0.0006809138997969583  train acc = 0.9677912386774853
-val loss : 1.2911093069447412  val acc = 0.7526321411132812
-============================
-epoch = 148
-time = 1.0000 MIN 53.7012 SEC, total time = 200.0000 Min 38.1912 SEC
-training loss : 0.0006688841866463157  train acc = 0.9692072553999685
-val loss : 1.2857785092459784  val acc = 0.7492019534111023
-============================
-epoch = 149
-time = 1.0000 MIN 58.9571 SEC, total time = 202.0000 Min 37.1578 SEC
-training loss : 0.0007024179679865123  train acc = 0.9677013328538356
-val loss : 1.252905524439282  val acc = 0.7530801892280579
-============================
-epoch = 150
-time = 2.0000 MIN 36.9079 SEC, total time = 205.0000 Min 14.0688 SEC
-training loss : 0.0008339762308280146  train acc = 0.9629338087190054
-val loss : 1.2739561928643122  val acc = 0.7530801892280579
-============================
-epoch = 151
-time = 1.0000 MIN 51.6621 SEC, total time = 207.0000 Min 5.7313 SEC
-training loss : 0.0008107128293940162  train acc = 0.9630727201166855
-val loss : 1.2018478645218744  val acc = 0.7565664052963257
-============================
-epoch = 152
-time = 1.0000 MIN 52.8909 SEC, total time = 208.0000 Min 58.6251 SEC
-training loss : 0.0008113911404770694  train acc = 0.9635820619081795
-val loss : 1.2398998472425673  val acc = 0.7540042996406555
-============================
-epoch = 153
-time = 2.0000 MIN 0.8717 SEC, total time = 210.0000 Min 59.5013 SEC
-training loss : 0.0007148000118641679  train acc = 0.9682124418308522
-val loss : 1.2498134540186987  val acc = 0.754382312297821
-============================
-epoch = 154
-time = 1.0000 MIN 57.2217 SEC, total time = 212.0000 Min 56.7266 SEC
-training loss : 0.0007370350800001472  train acc = 0.96647604935985
-val loss : 1.29274782538414  val acc = 0.7457297444343567
-============================
-epoch = 155
-time = 1.0000 MIN 51.6425 SEC, total time = 214.0000 Min 48.3732 SEC
-training loss : 0.0007695101239138202  train acc = 0.9643460745954205
-val loss : 1.2086589833100636  val acc = 0.7486839294433594
-============================
-epoch = 156
-time = 1.0000 MIN 49.3828 SEC, total time = 216.0000 Min 37.7590 SEC
-training loss : 0.0007640829777412205  train acc = 0.9652489986803418
-val loss : 1.2177464928891923  val acc = 0.7604866623878479
-============================
-epoch = 157
-time = 1.0000 MIN 51.7859 SEC, total time = 218.0000 Min 29.5470 SEC
-training loss : 0.0007027260517302224  train acc = 0.967240062047091
-val loss : 1.3243122564421759  val acc = 0.7404793500900269
-============================
-epoch = 158
-time = 1.0000 MIN 53.0999 SEC, total time = 220.0000 Min 22.6545 SEC
-training loss : 0.000768031440855516  train acc = 0.9653647581784085
-val loss : 1.1911612186166975  val acc = 0.7609207034111023
-============================
-epoch = 159
-time = 1.0000 MIN 55.6739 SEC, total time = 222.0000 Min 18.3363 SEC
-training loss : 0.0007303670698416456  train acc = 0.9678883152362652
-val loss : 1.2369553115632799  val acc = 0.7635388970375061
-============================
-epoch = 160
-time = 2.0000 MIN 37.4261 SEC, total time = 224.0000 Min 55.7702 SEC
-training loss : 0.0008737724401204941  train acc = 0.9622997831712947
-val loss : 1.2540470659732819  val acc = 0.7379032373428345
+time = 1.0000 MIN 53.7130 SEC, total time = 140.0000 Min 30.4283 SEC
+training loss : 0.00032978486359631735  train acc = 0.9664429530201343
+val loss : 1.2417371604177687  val acc = 0.7413676381111145
 ============================

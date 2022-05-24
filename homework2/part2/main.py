@@ -88,7 +88,7 @@ def train_interface(args):
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
 
     # scheduler = optim.lr_scheduler.MultiStepLR(optimizer,milestones=milestones, gamma=0.1)
-    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, 0.1, epochs=num_epoch)
+    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, 0.1, epochs=num_epoch, steps_per_epoch=len(train_loader))
     
     # We often apply crossentropyloss for classification problem. Check it on pytorch if interested
     criterion = nn.CrossEntropyLoss()

@@ -63,8 +63,8 @@ def plot_learning_curve(x, y, mode, curve_type, save_path):
     plt.savefig(os.path.join(save_path, f'{mode}/{curve_type}.png'))
     plt.close()
 
-def plot_pseudo_labels(x, pseudo_labels, mod, save_path):
-    x = np.arange(0, len(x), mod)
+def plot_pseudo_labels(x, pseudo_labels, mod, start_epoch, save_path):
+    x = np.arange(start_epoch, len(x), mod)
     pseudo_labels = np.array(pseudo_labels).T
     for i in range(10):
         plt.plot(x, pseudo_labels[i], label=f'Class Id {i}')
@@ -89,6 +89,7 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
 
     best_acc = 0
     mod = 10
+    start_epoch = 40
     pseudo_labels = []
     for i in range(num_epoch):
         print(f'epoch = {i}')
@@ -97,7 +98,7 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
         train_loss = 0.0 
         corr_num = 0
 
-        if i % mod == 0:
+        if i % mod == 0 and i >= start_epoch:
             pseudo_set, add_num, flag, pseudo_label = get_pseudo_labels(unlabeled_set, model, device, batch_size)
             pseudo_labels.append(pseudo_label)
             if flag:
@@ -105,6 +106,8 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
                 train_loader_semi = torch.utils.data.DataLoader(concat_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
             else:
                 train_loader_semi = train_loader
+        else:
+            train_loader_semi = train_loader
 
         # training part
         # start training
@@ -224,7 +227,7 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
     plot_learning_curve(x, overall_loss, 'train', 'loss', f'save_dir/{model_name}')
     plot_learning_curve(x, overall_val_acc, 'valid', 'acc', f'save_dir/{model_name}')
     plot_learning_curve(x, overall_val_loss, 'valid', 'loss', f'save_dir/{model_name}')
-    plot_pseudo_labels(x, pseudo_labels, mod, f'save_dir/{model_name}')
+    plot_pseudo_labels(x, pseudo_labels, mod, start_epoch, f'save_dir/{model_name}')
 
 
 def get_pseudo_labels(dataset, model, device, batch_size, threshold=0.99):

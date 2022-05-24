@@ -15,7 +15,7 @@ LeNet_cfg = {
     'batch_size': 256,
     'lr':0.05,
     'num_out': 10,
-    'num_epoch': 50,
+    'num_epoch': 100,
 }
 
 myResnet_cfg = {
@@ -31,5 +31,5 @@ myResnet_cfg = {
     'batch_size': 256,
     'lr':0.05,
     'num_out': 10,
-    'num_epoch': 50,
+    'num_epoch': 100,
 }

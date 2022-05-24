@@ -29,16 +29,17 @@ $ conda install -c conda-forge cyvlfeat
 |Hyperparameter|Value|
 |-|-|
 |Split ratio|0.9|
-|Batch size|128|
-|Learning rate|0.01|
+|Batch size|256|
+|Learning rate|0.05|
 |Epoch|200|
 |Optimizer|SGD|
 |Momentum|0.9|
 |Weight decay|0.0005|
-|Learning rate scheduler|CosineAnnealingLR|
-|Tmax|100|
+|Learning rate scheduler|OneCycleLR|
+|Percentage of the cycle|0.2|
 |Loss function|CrossEntropy|
-|Add pseudo labels|per 25 epochs|
+|Pseudo label threshold|0.99|
+|Add pseudo labels|per 10 epochs (start to add after epoch 20)|
 
 ### LeNet (with pseudo label)
 * #### Model Summary
@@ -69,12 +70,16 @@ Estimated Total Size (MB): 0.36
 ----------------------------------------------------------------
 ```
 
+* #### Performance
 ||Loss|Accuracy|
 |-|-|-|
 |Training|![loss.png](./part2/save_dir/LeNet/train/loss.png)|![acc.png](./part2/save_dir/LeNet/train/acc.png)|
 |Validation|![loss.png](./part2/save_dir/LeNet/valid/loss.png)|![acc.png](./part2/save_dir/LeNet/valid/acc.png)
 
 * #### Pseudo Label
+    Unlabel images : `30000`
+    Images with pseudo label : `2031`
+    Pseudo labels reuse rate : `6.77%`
     ![pseudo label](./part2/save_dir/LeNet/pseudo_label.png)
 
 * #### Evaluation
@@ -149,6 +154,7 @@ Estimated Total Size (MB): 53.89
 ----------------------------------------------------------------
 ```
 
+* #### Performance
 ||Loss|Accuracy|
 |-|-|-|
 |Training|![loss.png](./part2/save_dir/myResnet/train/loss.png)|![acc.png](./part2/save_dir/myResnet/train/acc.png)|
