@@ -26,15 +26,20 @@ $ conda install -c conda-forge cyvlfeat
 ## Part 2
 ### Compare the performance on residual networks and LeNet. Plot the learning curve (loss and accuracy) on both training and validation sets for both 2 schemes. 8 plots in total
 
-### LeNet
+### LeNet (with pseudo label)
 ||Loss|Accuracy|
 |-|-|-|
 |Training|![loss.png](./part2/save_dir/LeNet/train/loss.png)|![acc.png](./part2/save_dir/LeNet/train/acc.png)|
 |Validation|![loss.png](./part2/save_dir/LeNet/valid/loss.png)|![acc.png](./part2/save_dir/LeNet/valid/acc.png)
 
-
-My Resnet (without pseudo label)
+### My Resnet (with pseudo label)
 ||Loss|Accuracy|
 |-|-|-|
 |Training|![loss.png](./part2/save_dir/myResnet/train/loss.png)|![acc.png](./part2/save_dir/myResnet/train/acc.png)|
 |Validation|![loss.png](./part2/save_dir/myResnet/valid/loss.png)|![acc.png](./part2/save_dir/myResnet/valid/acc.png)
+
+### DLA (with pseudo label)
+||Loss|Accuracy|
+|-|-|-|
+|Training|![loss.png](./part2/save_dir/DLA/train/loss.png)|![acc.png](./part2/save_dir/DLA/train/acc.png)|
+|Validation|![loss.png](./part2/save_dir/DLA/valid/loss.png)|![acc.png](./part2/save_dir/DLA/valid/acc.png)

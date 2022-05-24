@@ -12,11 +12,10 @@ LeNet_cfg = {
     'seed': 687,
     
     # training hyperparameters
-    'batch_size': 32,
+    'batch_size': 128,
     'lr':0.01,
-    'milestones': [20, 40],
     'num_out': 10,
-    'num_epoch': 100,
+    'num_epoch': 200,
 }
 
 myResnet_cfg = {
@@ -29,11 +28,10 @@ myResnet_cfg = {
     'seed': 687,
     
     # training hyperparameters
-    'batch_size': 32,
+    'batch_size': 128,
     'lr':0.01,
-    'milestones': [50, 75],
     'num_out': 10,
-    'num_epoch': 100,
+    'num_epoch': 200,
 }
 
 DLA_cfg = {
@@ -46,9 +44,8 @@ DLA_cfg = {
     'seed': 687,
     
     # training hyperparameters
-    'batch_size': 32,
+    'batch_size': 128,
     'lr':0.01,
-    'milestones': [50, 75],
     'num_out': 10,
-    'num_epoch': 100,
+    'num_epoch': 200,
 }

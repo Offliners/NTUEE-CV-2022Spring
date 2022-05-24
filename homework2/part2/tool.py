@@ -63,6 +63,17 @@ def plot_learning_curve(x, y, mode, curve_type, save_path):
     plt.savefig(os.path.join(save_path, f'{mode}/{curve_type}.png'))
     plt.close()
 
+def plot_pseudo_labeling(x, y, save_path):
+    plt.plot(x, y, label=f'{mode} {curve_type}')
+    plt.xlabel('Epoch')
+    plt.ylabel(f'{curve_type}')
+    plt.title(f'Learning curve of {mode} {curve_type}')
+    plt.legend()
+
+    os.makedirs(save_path, exist_ok=True)
+    plt.savefig(os.path.join(save_path, f'pseudo_label.png'))
+    plt.close()
+
 
 def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader, num_epoch, log_path, save_path, device, criterion, scheduler, optimizer, batch_size):
     start_train = time.time()
@@ -73,7 +84,8 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
     overall_val_acc = np.zeros(num_epoch ,dtype = np.float32)
 
     best_acc = 0
-
+    mod = 25
+    pseudo_labels = []
     for i in range(num_epoch):
         print(f'epoch = {i}')
         # epcoch setting
@@ -81,12 +93,14 @@ def train(model, model_name, train_set, unlabeled_set, train_loader, val_loader,
         train_loss = 0.0 
         corr_num = 0
 
-        pseudo_set, add_num, flag = get_pseudo_labels(unlabeled_set, model, batch_size)
-        if flag:
-            concat_dataset = torch.utils.data.ConcatDataset([train_set, pseudo_set])
-            train_loader_semi = torch.utils.data.DataLoader(concat_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
-        else:
-            train_loader_semi = train_loader
+        if i % mod == 0:
+            pseudo_set, add_num, flag, pseudo_label = get_pseudo_labels(unlabeled_set, model, batch_size)
+            pseudo_labels.append(pseudo_label)
+            if flag:
+                concat_dataset = torch.utils.data.ConcatDataset([train_set, pseudo_set])
+                train_loader_semi = torch.utils.data.DataLoader(concat_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+            else:
+                train_loader_semi = train_loader
 
         # training part
         # start training
