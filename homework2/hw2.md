@@ -81,8 +81,7 @@ Estimated Total Size (MB): 0.36
 
     Images with pseudo label : `2741`
 
-
-    Pseudo labels reuse rate : `9.14%`
+    Unlabel dataset usage : `9.14%`
 
     ![pseudo label](./part2/save_dir/LeNet/pseudo_label.png)
 
@@ -170,7 +169,7 @@ Estimated Total Size (MB): 53.89
 
     Images with pseudo label : `23405`
 
-    Pseudo labels reuse rate : `78.02%`
+    Unlabel dataset usage : `78.02%`
 
     ![pseudo label](./part2/save_dir/myResnet/pseudo_label.png)
 
