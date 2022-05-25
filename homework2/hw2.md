@@ -39,7 +39,7 @@ $ conda install -c conda-forge cyvlfeat
 |Percentage of the cycle|0.2|
 |Loss function|CrossEntropy|
 |Pseudo label threshold|0.99|
-|Add pseudo labels|per 10 epochs (start to add after epoch 20)|
+|Add pseudo labels|per 10 epochs (start to add after epoch 40)|
 
 ### LeNet (with pseudo label)
 * #### Model Summary
@@ -78,12 +78,17 @@ Estimated Total Size (MB): 0.36
 
 * #### Pseudo Label
     Unlabel images : `30000`
+
     Images with pseudo label : `2741`
+
+
     Pseudo labels reuse rate : `9.14%`
+
     ![pseudo label](./part2/save_dir/LeNet/pseudo_label.png)
 
 * #### Evaluation
     Total training time : `59 min 51 sec` 
+
     Accuracy : `66.98%`
 
 
@@ -162,10 +167,14 @@ Estimated Total Size (MB): 53.89
 
 * #### Pseudo Label
     Unlabel images : `30000`
+
     Images with pseudo label : `23405`
+
     Pseudo labels reuse rate : `78.02%`
+
     ![pseudo label](./part2/save_dir/myResnet/pseudo_label.png)
 
 * #### Evaluation
     Total training time : `210 min 53 sec` 
+
     Accuracy : `87.28%`
