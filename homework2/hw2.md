@@ -78,8 +78,8 @@ Estimated Total Size (MB): 0.36
 
 * #### Pseudo Label
     Unlabel images : `30000`
-    Images with pseudo label : `2031`
-    Pseudo labels reuse rate : `6.77%`
+    Images with pseudo label : `2741`
+    Pseudo labels reuse rate : `9.14%`
     ![pseudo label](./part2/save_dir/LeNet/pseudo_label.png)
 
 * #### Evaluation
@@ -161,8 +161,11 @@ Estimated Total Size (MB): 53.89
 |Validation|![loss.png](./part2/save_dir/myResnet/valid/loss.png)|![acc.png](./part2/save_dir/myResnet/valid/acc.png)
 
 * #### Pseudo Label
+    Unlabel images : `30000`
+    Images with pseudo label : `23405`
+    Pseudo labels reuse rate : `78.02%`
     ![pseudo label](./part2/save_dir/myResnet/pseudo_label.png)
 
 * #### Evaluation
-    Total training time : `59 min 51 sec` 
-    Accuracy : `66.98%`
+    Total training time : `210 min 53 sec` 
+    Accuracy : `87.28%`
