@@ -11,7 +11,7 @@ Course website : [Link](http://media.ee.ntu.edu.tw/courses/cv/22S/)
 ## Usage
 ```shell
 # Build anaconda virtual environment
-$ conda create --name {virtual environment name} python={python virsion}
+$ conda create --name {virtual environment name} python={python version}
 
 # Activate the created virtual environment
 $ conda activate {virtual environment name}
