@@ -1,4 +1,4 @@
-# NTU-DLCV-2022Spring
+# NTUEE Computer Vision (2022Spring)
 Course website : [Link](http://media.ee.ntu.edu.tw/courses/cv/22S/)
 
 ## Homeworks
