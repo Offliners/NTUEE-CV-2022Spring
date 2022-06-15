@@ -4,8 +4,8 @@ Detail : [Link](hw4.pdf)
 ## Usage
 ```shell
 # Build anaconda virtual environment
-$ conda create --name dlcv_hw4 python=3.6.9
-$ conda activate dlcv_hw4
+$ conda create --name cv_hw4 python=3.6.9
+$ conda activate cv_hw4
 
 # Install required package
 $ pip3 install -r requirements.txt
