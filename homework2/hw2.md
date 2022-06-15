@@ -6,8 +6,8 @@ Dataset : [Link](https://drive.google.com/u/1/uc?id=1Uq1_00JtfZ8ETueo8RjPvL6ANhI
 ## Usage
 ```shell
 # Build anaconda virtual environment
-$ conda create --name dlcv_hw2 python=3.7.6
-$ conda activate dlcv_hw2
+$ conda create --name cv_hw2 python=3.7.6
+$ conda activate cv_hw2
 
 # Install required package
 $ pip3 install -r requirements.txt
